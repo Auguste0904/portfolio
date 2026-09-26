@@ -20,7 +20,7 @@ const presentLabel = locale === 'fr' ? 'Aujourd’hui' : 'Present';
         {' - '}
         {entry.data.endDate ? <time datetime={entry.data.endDate.toISOString()}>{formatter.format(entry.data.endDate)}</time> : presentLabel}
       </p>
-      <h3>{entry.data.title}</h3>
+      <h2>{entry.data.title}</h2>
       <p>{entry.data.summary}</p>
     </li>
   ))}

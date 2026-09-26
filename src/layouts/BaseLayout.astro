@@ -1,5 +1,6 @@
 ---
 import type { Locale } from '../lib/i18n';
+import Seo from '../components/Seo.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import SkipLink from '../components/SkipLink.astro';
@@ -21,8 +22,7 @@ const skipLabel = locale === 'fr' ? 'Aller au contenu principal' : 'Skip to main
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <meta name="description" content={description} />
-    <title>{title}</title>
+    <Seo title={title} description={description} />
   </head>
   <body>
     <SkipLink label={skipLabel} />

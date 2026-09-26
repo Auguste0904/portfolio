@@ -9,13 +9,16 @@
     "preview": "astro preview",
     "check": "astro check",
     "test": "vitest run",
-    "test:e2e": "playwright test --pass-with-no-tests"
+    "test:e2e": "playwright test --pass-with-no-tests",
+    "test:e2e:base-path": "cross-env BASE_PATH=/portfolio/ npm run build && cross-env BASE_PATH=/portfolio/ playwright test --config playwright.base-path.config.ts"
   },
   "devDependencies": {
-    "@types/node": "latest",
     "@astrojs/check": "latest",
+    "@axe-core/playwright": "^4.13.0",
     "@playwright/test": "latest",
+    "@types/node": "latest",
     "astro": "latest",
+    "cross-env": "^10.1.0",
     "playwright": "latest",
     "typescript": "latest",
     "vitest": "latest"

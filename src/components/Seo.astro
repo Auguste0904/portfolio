@@ -1,0 +1,13 @@
+---
+interface Props {
+  description: string;
+  title: string;
+}
+
+const { description, title } = Astro.props;
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
+---
+
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalUrl} />
+<title>{title}</title>
