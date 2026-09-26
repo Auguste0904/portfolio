@@ -1,14 +1,17 @@
 ---
+import { normalizePublicImagePath } from '../lib/images';
+
 interface Props {
   alt?: string;
   image?: string;
 }
 
 const { alt, image } = Astro.props;
+const src = image ? normalizePublicImagePath(image, import.meta.env.BASE_URL) : undefined;
 ---
 
-{image ? (
-  <img class="project-image" src={image} alt={alt ?? ''} loading="lazy" />
+{src ? (
+  <img class="project-image" src={src} alt={alt ?? ''} loading="lazy" />
 ) : (
   <div class="project-image-fallback" data-project-image-fallback aria-hidden="true"></div>
 )}
