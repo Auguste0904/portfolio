@@ -6,6 +6,17 @@ if (toggle && mobileNavigation && label) {
   const mobileViewport = window.matchMedia('(max-width: 43rem)');
   const openLabel = toggle.dataset.openLabel ?? 'Open menu';
   const closeLabel = toggle.dataset.closeLabel ?? 'Close menu';
+  const focusTargetKey = 'mobile-navigation-focus-target';
+
+  const focusTarget = (targetId: string) => {
+    const target = document.getElementById(targetId);
+
+    if (!target) return false;
+
+    target.setAttribute('tabindex', '-1');
+    target.focus();
+    return true;
+  };
 
   const setOpen = (open: boolean) => {
     toggle.setAttribute('aria-expanded', String(open));
@@ -34,10 +45,27 @@ if (toggle && mobileNavigation && label) {
   };
 
   syncViewport(mobileViewport.matches);
+  const pendingFocusTarget = window.sessionStorage.getItem(focusTargetKey);
+  if (pendingFocusTarget) {
+    window.sessionStorage.removeItem(focusTargetKey);
+    focusTarget(pendingFocusTarget);
+  }
   mobileViewport.addEventListener('change', (event) => syncViewport(event.matches));
   toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
   mobileNavigation.addEventListener('click', (event) => {
     if (event.target instanceof HTMLAnchorElement && mobileViewport.matches) {
+      const destination = new URL(event.target.href);
+      const targetId = destination.hash.slice(1);
+      const isCurrentPage = destination.pathname === window.location.pathname;
+
+      if (isCurrentPage && targetId && focusTarget(targetId)) {
+        event.preventDefault();
+        window.history.pushState(null, '', destination.hash);
+      } else {
+        if (targetId) window.sessionStorage.setItem(focusTargetKey, targetId);
+        else toggle.focus();
+      }
+
       mobileNavigation.hidden = true;
       toggle.setAttribute('aria-expanded', 'false');
       label.textContent = openLabel;

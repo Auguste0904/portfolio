@@ -83,9 +83,9 @@ a:hover { color: var(--color-accent-dark); }
 
 .project-case-study { display: grid; gap: var(--space-3); }
 
-.project-case-study h1 { font-family: var(--font-display); font-size: clamp(4rem, 13vw, 10rem); font-weight: 400; letter-spacing: 0.01em; line-height: 0.82; margin: 0; text-transform: uppercase; }
+.project-case-study h1 { font-family: var(--font-display); font-size: clamp(2.9rem, 7vw, 5.8rem); font-weight: 700; letter-spacing: -0.045em; line-height: 0.96; margin: 0; }
 
-.project-case-study h2, .project-meta h2 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 400; letter-spacing: 0.01em; margin-bottom: var(--space-1); text-transform: uppercase; }
+.project-case-study h2, .project-meta h2 { font-family: var(--font-display); font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 700; letter-spacing: -0.025em; line-height: 1.05; margin-bottom: var(--space-1); }
 
 .project-case-study section { border-top: 1px solid var(--color-line); padding-top: var(--space-2); }
 
@@ -129,7 +129,7 @@ a:hover { color: var(--color-accent-dark); }
 .skill-group ul { display: flex; flex-wrap: wrap; gap: var(--space-1); list-style: none; margin: 0; padding: 0; }
 .skill-group li { background: var(--color-paper-deep); font-size: 0.85rem; padding: 0.35rem 0.5rem; }
 .cv-callout { align-items: end; display: grid; gap: var(--space-3); }
-.cv-callout p { color: var(--color-ink-soft); line-height: 1.6; margin-bottom: 0; }
+.cv-callout p { color: var(--color-ink-soft); line-height: 1.6; margin: 0; }
 
 .site-footer { border-top: 1px solid var(--color-line); color: var(--color-muted); display: flex; font-size: 0.78rem; font-weight: 600; justify-content: space-between; margin: 0; max-width: none; padding: var(--space-3) var(--frame); }
 
@@ -144,7 +144,7 @@ a:hover { color: var(--color-accent-dark); }
   .site-nav { grid-column: auto; }
   .site-nav ul { align-items: center; flex-direction: row; gap: var(--space-3); justify-content: flex-end; padding: 0; }
   .site-main { padding-top: clamp(5rem, 9vw, 8rem); }
-  .project-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .skill-groups { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .cv-callout, .contact-callout { grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.8fr); }
   .contact-callout .contact-links { align-self: end; justify-content: flex-end; }

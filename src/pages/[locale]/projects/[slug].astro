@@ -24,14 +24,14 @@ if (!project) {
 
 const { Content } = await render(project);
 const copy: Record<Locale, { contextRole: string; outcomes: string; problem: string; solution: string; technology: string }> = {
-  fr: { problem: 'Probleme', contextRole: 'Contexte et role', solution: 'Solution', technology: 'Technologies', outcomes: 'Resultats et apprentissages' },
+  fr: { problem: 'Problème', contextRole: 'Contexte et rôle', solution: 'Solution', technology: 'Technologies', outcomes: 'Résultats et apprentissages' },
   en: { problem: 'Problem', contextRole: 'Context and role', solution: 'Solution', technology: 'Technology', outcomes: 'Outcomes and learning' },
 };
 ---
 
 <BaseLayout locale={locale} title={project.data.title} description={project.data.summary} alternatePath={`projects/${project.data.slug}`}>
   <article class="project-case-study page-content">
-    <p class="eyebrow">{locale === 'fr' ? 'Etude de cas' : 'Case study'}</p>
+    <p class="eyebrow">{locale === 'fr' ? 'Étude de cas' : 'Case study'}</p>
     <h1>{project.data.title}</h1>
     <p class="page-intro">{project.data.summary}</p>
     <ResponsiveImage image={project.data.image} alt={project.data.imageAlt} />

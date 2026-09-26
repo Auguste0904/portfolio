@@ -17,12 +17,12 @@ test.describe('site navigation', () => {
 
     const navigation = page.getByRole('navigation', { name: 'Primary navigation' });
     const profileLink = navigation.getByRole('link', { name: 'Profile', exact: true });
-    await expect(profileLink).toHaveAttribute('href', '#profile');
-    await expect(navigation.getByRole('link', { name: 'Projects', exact: true })).toHaveAttribute('href', '#projects');
-    await expect(navigation.getByRole('link', { name: 'Journey', exact: true })).toHaveAttribute('href', '#journey');
-    await expect(navigation.getByRole('link', { name: 'Skills', exact: true })).toHaveAttribute('href', '#skills');
-    await expect(navigation.getByRole('link', { name: 'CV', exact: true })).toHaveAttribute('href', '#cv');
-    await expect(navigation.getByRole('link', { name: 'Contact', exact: true })).toHaveAttribute('href', '#contact');
+    await expect(profileLink).toHaveAttribute('href', '/en/#profile');
+    await expect(navigation.getByRole('link', { name: 'Projects', exact: true })).toHaveAttribute('href', '/en/#projects');
+    await expect(navigation.getByRole('link', { name: 'Journey', exact: true })).toHaveAttribute('href', '/en/#journey');
+    await expect(navigation.getByRole('link', { name: 'Skills', exact: true })).toHaveAttribute('href', '/en/#skills');
+    await expect(navigation.getByRole('link', { name: 'CV', exact: true })).toHaveAttribute('href', '/en/#cv');
+    await expect(navigation.getByRole('link', { name: 'Contact', exact: true })).toHaveAttribute('href', '/en/#contact');
     await profileLink.focus();
 
     await expect(profileLink).toBeFocused();
@@ -61,6 +61,15 @@ test.describe('site navigation', () => {
     await page.getByRole('navigation', { name: 'Primary navigation' }).getByRole('link', { name: 'Projects', exact: true }).click();
 
     await expect(page.getByRole('button', { name: /open menu/i })).toHaveAttribute('aria-expanded', 'false');
+    await expect(page.locator('#projects')).toBeFocused();
+  });
+
+  test('links to localized home sections from a case study', async ({ page }) => {
+    await page.goto('/en/projects/atlas/');
+
+    const navigation = page.getByRole('navigation', { name: 'Primary navigation' });
+    await expect(navigation.getByRole('link', { name: 'Profile', exact: true })).toHaveAttribute('href', '/en/#profile');
+    await expect(navigation.getByRole('link', { name: 'Contact', exact: true })).toHaveAttribute('href', '/en/#contact');
   });
 
   test('localizes the French shell controls and footer', async ({ page }) => {

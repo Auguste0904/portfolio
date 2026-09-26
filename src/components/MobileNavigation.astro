@@ -1,5 +1,5 @@
 ---
-import type { Locale } from '../lib/i18n';
+import { getLocalizedPath, type Locale } from '../lib/i18n';
 
 interface Props {
   locale: Locale;
@@ -35,6 +35,6 @@ const links = [
 </button>
 <nav class="site-nav" id="primary-navigation" aria-label={shellLabels.navigation} data-mobile-navigation>
   <ul>
-    {links.map(([anchor, label]) => <li><a href={`#${anchor}`}>{label}</a></li>)}
+    {links.map(([anchor, label]) => <li><a href={`${getLocalizedPath(locale)}#${anchor}`}>{label}</a></li>)}
   </ul>
 </nav>

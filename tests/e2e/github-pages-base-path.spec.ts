@@ -9,9 +9,9 @@ test('GitHub Pages build prefixes internal routes and assets with the configured
 
   expect(html).toContain('href="/portfolio/en/"');
   expect(html).toContain('href="/portfolio/fr/projects/"');
+  expect(html).toContain('href="/portfolio/fr/#projects"');
   expect(html).toMatch(/href="\/portfolio\/_astro\/.+\.css"/);
 
-  const cvHtml = await readFile(resolve('dist/fr/cv/index.html'), 'utf8');
-
-  expect(cvHtml).toContain('href="/portfolio/documents/cv.pdf"');
+  expect(html).not.toContain('documents/cv.pdf');
+  expect(html).toContain('href="/portfolio/fr/cv/"');
 });
