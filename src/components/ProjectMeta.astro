@@ -1,0 +1,15 @@
+---
+interface Props {
+  label: string;
+  values: string[];
+}
+
+const { label, values } = Astro.props;
+---
+
+<section class="project-meta" aria-label={label}>
+  <h2>{label}</h2>
+  <ul>
+    {values.map((value) => <li>{value}</li>)}
+  </ul>
+</section>

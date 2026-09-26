@@ -1,11 +1,14 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { getLocalizedPath, type Locale } from '../lib/i18n';
 
 interface Props {
+  locale: Locale;
   project: CollectionEntry<'projects'>;
 }
 
-const { project } = Astro.props;
+const { locale, project } = Astro.props;
+const detailPath = getLocalizedPath(locale, `projects/${project.data.slug}`);
 ---
 
 <article class="project-card">
@@ -14,4 +17,5 @@ const { project } = Astro.props;
   <ul aria-label="Technologies">
     {project.data.technologies.map((technology) => <li>{technology}</li>)}
   </ul>
+  <a href={detailPath}>{locale === 'fr' ? 'Lire l etude de cas' : 'Read case study'}</a>
 </article>

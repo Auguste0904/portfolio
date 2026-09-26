@@ -69,6 +69,32 @@ a:hover { color: var(--color-accent-dark); }
 
 .project-card li { border: 1px solid var(--color-line); padding: 0.2rem 0.4rem; }
 
+.project-card > a { display: inline-block; font-weight: bold; margin-top: var(--space-2); }
+
+.project-grid--listing { margin-top: var(--space-4); }
+
+.project-case-study { display: grid; gap: var(--space-3); }
+
+.project-case-study h1 { font-family: var(--font-display); font-size: clamp(3rem, 13vw, 8rem); letter-spacing: -0.08em; line-height: 0.82; margin: 0; }
+
+.project-case-study h2, .project-meta h2 { font-family: var(--font-display); font-size: clamp(1.75rem, 4vw, 2.5rem); letter-spacing: -0.05em; margin-bottom: var(--space-1); }
+
+.project-case-study section { border-top: 1px solid var(--color-line); padding-top: var(--space-2); }
+
+.project-image, .project-image-fallback { aspect-ratio: 16 / 9; width: 100%; }
+
+.project-image { object-fit: cover; }
+
+.project-image-fallback { background: linear-gradient(135deg, var(--color-mist), var(--color-accent)); }
+
+.project-meta ul, .external-project-links { display: flex; flex-wrap: wrap; gap: var(--space-1); list-style: none; margin: 0; padding: 0; }
+
+.project-meta li, .external-project-links a { border: 1px solid var(--color-line); padding: 0.35rem 0.5rem; }
+
+.external-project-links a { text-decoration: none; }
+
+.visually-hidden { height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; clip: rect(0 0 0 0); white-space: nowrap; }
+
 .timeline { border-left: 1px solid var(--color-line); display: grid; gap: var(--space-3); list-style: none; margin: var(--space-3) 0 0 var(--space-1); padding: 0 0 0 var(--space-3); }
 
 .timeline li { position: relative; }

@@ -1,0 +1,14 @@
+---
+interface Props {
+  alt?: string;
+  image?: string;
+}
+
+const { alt, image } = Astro.props;
+---
+
+{image ? (
+  <img class="project-image" src={image} alt={alt ?? ''} loading="lazy" />
+) : (
+  <div class="project-image-fallback" data-project-image-fallback aria-hidden="true"></div>
+)}

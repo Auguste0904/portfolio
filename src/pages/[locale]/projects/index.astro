@@ -1,0 +1,32 @@
+---
+import ProjectCard from '../../../components/ProjectCard.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getProjects } from '../../../lib/projects';
+import { isLocale, type Locale } from '../../../lib/i18n';
+
+export function getStaticPaths() {
+  return ['fr', 'en'].map((locale) => ({ params: { locale } }));
+}
+
+const locale = Astro.params.locale;
+
+if (!locale || !isLocale(locale)) {
+  return new Response(null, { status: 404 });
+}
+
+const copy: Record<Locale, { description: string; intro: string; title: string }> = {
+  fr: { title: 'Projets', description: 'Etudes de cas de demonstration.', intro: 'Des etudes de cas fictives, explicitement marquees comme demonstrations.' },
+  en: { title: 'Projects', description: 'Demonstration case studies.', intro: 'Fictional case studies, explicitly marked as demonstrations.' },
+};
+const projects = await getProjects(locale);
+---
+
+<BaseLayout locale={locale} title={copy[locale].title} description={copy[locale].description} alternatePath="projects">
+  <section class="page-content" aria-labelledby="page-title">
+    <h1 id="page-title">{copy[locale].title}</h1>
+    <p class="page-intro">{copy[locale].intro}</p>
+    <div class="project-grid project-grid--listing">
+      {projects.map((project) => <ProjectCard locale={locale} project={project} />)}
+    </div>
+  </section>
+</BaseLayout>

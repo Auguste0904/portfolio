@@ -24,4 +24,8 @@ describe('project content schema', () => {
 
     expect(projectSchema.safeParse(project).success).toBe(false);
   });
+
+  it('rejects a project with no technologies', () => {
+    expect(projectSchema.safeParse({ ...validProject, technologies: [] }).success).toBe(false);
+  });
 });

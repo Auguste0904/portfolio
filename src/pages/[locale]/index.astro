@@ -57,7 +57,7 @@ const timeline = experience
       <a href={getLocalizedPath(locale, 'projects')}>{content.allProjects}</a>
     </div>
     <div class="project-grid">
-      {featuredProjects.map((project) => <ProjectCard project={project} />)}
+       {featuredProjects.map((project) => <ProjectCard locale={locale} project={project} />)}
     </div>
   </section>
 
