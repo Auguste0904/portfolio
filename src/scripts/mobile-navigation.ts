@@ -36,6 +36,13 @@ if (toggle && mobileNavigation && label) {
   syncViewport(mobileViewport.matches);
   mobileViewport.addEventListener('change', (event) => syncViewport(event.matches));
   toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+  mobileNavigation.addEventListener('click', (event) => {
+    if (event.target instanceof HTMLAnchorElement && mobileViewport.matches) {
+      mobileNavigation.hidden = true;
+      toggle.setAttribute('aria-expanded', 'false');
+      label.textContent = openLabel;
+    }
+  });
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') setOpen(false);
   });

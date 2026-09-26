@@ -15,11 +15,18 @@ test.describe('site navigation', () => {
   test('provides keyboard-visible primary navigation', async ({ page }) => {
     await page.goto('/en/');
 
-    const projectsLink = page.getByRole('link', { name: 'Projects', exact: true });
-    await projectsLink.focus();
+    const navigation = page.getByRole('navigation', { name: 'Primary navigation' });
+    const profileLink = navigation.getByRole('link', { name: 'Profile', exact: true });
+    await expect(profileLink).toHaveAttribute('href', '#profile');
+    await expect(navigation.getByRole('link', { name: 'Projects', exact: true })).toHaveAttribute('href', '#projects');
+    await expect(navigation.getByRole('link', { name: 'Journey', exact: true })).toHaveAttribute('href', '#journey');
+    await expect(navigation.getByRole('link', { name: 'Skills', exact: true })).toHaveAttribute('href', '#skills');
+    await expect(navigation.getByRole('link', { name: 'CV', exact: true })).toHaveAttribute('href', '#cv');
+    await expect(navigation.getByRole('link', { name: 'Contact', exact: true })).toHaveAttribute('href', '#contact');
+    await profileLink.focus();
 
-    await expect(projectsLink).toBeFocused();
-    await expect(projectsLink).toHaveCSS('outline-style', 'solid');
+    await expect(profileLink).toBeFocused();
+    await expect(profileLink).toHaveCSS('outline-style', 'solid');
   });
 
   test('links to the equivalent page in the other language', async ({ page }) => {
@@ -44,6 +51,16 @@ test.describe('site navigation', () => {
     await page.keyboard.press('Escape');
     await expect(menuButton).toHaveAttribute('aria-expanded', 'false');
     await expect(menuButton).toBeFocused();
+  });
+
+  test('closes the mobile menu after choosing an in-page section', async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 667 });
+    await page.goto('/en/');
+
+    await page.getByRole('button', { name: /open menu/i }).click();
+    await page.getByRole('navigation', { name: 'Primary navigation' }).getByRole('link', { name: 'Projects', exact: true }).click();
+
+    await expect(page.getByRole('button', { name: /open menu/i })).toHaveAttribute('aria-expanded', 'false');
   });
 
   test('localizes the French shell controls and footer', async ({ page }) => {

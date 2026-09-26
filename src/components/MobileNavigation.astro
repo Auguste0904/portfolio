@@ -1,20 +1,23 @@
 ---
-import { getLocalizedPath, navigationLabels, type Locale } from '../lib/i18n';
+import type { Locale } from '../lib/i18n';
 
 interface Props {
   locale: Locale;
 }
 
 const { locale } = Astro.props;
-const labels = navigationLabels[locale];
 const shellLabels = locale === 'fr'
   ? { openMenu: 'Ouvrir le menu', closeMenu: 'Fermer le menu', navigation: 'Navigation principale' }
   : { openMenu: 'Open menu', closeMenu: 'Close menu', navigation: 'Primary navigation' };
+const labels = locale === 'fr'
+  ? { profile: 'Profil', projects: 'Projets', journey: 'Parcours', skills: 'Competences', cv: 'CV', contact: 'Contact' }
+  : { profile: 'Profile', projects: 'Projects', journey: 'Journey', skills: 'Skills', cv: 'CV', contact: 'Contact' };
 const links = [
+  ['profile', labels.profile],
   ['projects', labels.projects],
   ['journey', labels.journey],
+  ['skills', labels.skills],
   ['cv', labels.cv],
-  ['about', labels.about],
   ['contact', labels.contact],
 ] as const;
 ---
@@ -32,6 +35,6 @@ const links = [
 </button>
 <nav class="site-nav" id="primary-navigation" aria-label={shellLabels.navigation} data-mobile-navigation>
   <ul>
-    {links.map(([path, label]) => <li><a href={getLocalizedPath(locale, path)}>{label}</a></li>)}
+    {links.map(([anchor, label]) => <li><a href={`#${anchor}`}>{label}</a></li>)}
   </ul>
 </nav>
