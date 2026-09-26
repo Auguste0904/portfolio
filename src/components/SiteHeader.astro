@@ -1,0 +1,24 @@
+---
+import { getLocalizedPath, type Locale } from '../lib/i18n';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+import MobileNavigation from './MobileNavigation.astro';
+
+interface Props {
+  locale: Locale;
+  alternatePath?: string;
+}
+
+const { locale, alternatePath } = Astro.props;
+---
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-brand" href={getLocalizedPath(locale)}>Portfolio demo</a>
+    <MobileNavigation locale={locale} />
+    <LanguageSwitcher locale={locale} alternatePath={alternatePath} />
+  </div>
+</header>
+
+<script>
+  import '../scripts/mobile-navigation';
+</script>

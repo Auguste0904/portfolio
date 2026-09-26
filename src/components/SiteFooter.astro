@@ -1,0 +1,15 @@
+---
+import type { Locale } from '../lib/i18n';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const message = locale === 'fr' ? 'Portfolio de demonstration' : 'Portfolio demonstration';
+---
+
+<footer class="site-footer">
+  <span>{message}</span>
+  <span>Static and accessible</span>
+</footer>

@@ -1,0 +1,37 @@
+---
+import type { Locale } from '../lib/i18n';
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SkipLink from '../components/SkipLink.astro';
+import '../styles/global.css';
+
+export interface BaseLayoutProps {
+  locale: Locale;
+  title: string;
+  description: string;
+  alternatePath?: string;
+}
+
+const { locale, title, description, alternatePath } = Astro.props;
+const skipLabel = locale === 'fr' ? 'Aller au contenu principal' : 'Skip to main content';
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin);
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <SkipLink label={skipLabel} />
+    <SiteHeader locale={locale} alternatePath={alternatePath} />
+    <main id="main-content" tabindex="-1">
+      <slot />
+    </main>
+    <SiteFooter locale={locale} />
+  </body>
+</html>

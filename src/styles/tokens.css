@@ -1,0 +1,16 @@
+:root {
+  --color-ink: #18252b;
+  --color-paper: #fffdf8;
+  --color-accent: #b52818;
+  --color-accent-dark: #7f180f;
+  --color-mist: #dce7e0;
+  --color-line: #9eada4;
+  --font-display: Georgia, 'Times New Roman', serif;
+  --font-body: Arial, Helvetica, sans-serif;
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --space-5: 4rem;
+  --content-width: 76rem;
+}

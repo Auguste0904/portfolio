@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { isLocale, type Locale } from '../../lib/i18n';
+
+export function getStaticPaths() {
+  return ['fr', 'en'].map((locale) => ({ params: { locale } }));
+}
+
+const locale = Astro.params.locale;
+
+if (!locale || !isLocale(locale)) {
+  return new Response(null, { status: 404 });
+}
+
+const copy: Record<Locale, { heading: string; description: string; body: string }> = {
+  fr: {
+    heading: 'Structure editoriale',
+    description: 'Une demonstration de portfolio accessible.',
+    body: 'Contenu de demonstration pour un portfolio bilingue. Les pages localisees definitives remplaceront cette demonstration.',
+  },
+  en: {
+    heading: 'Editorial shell',
+    description: 'An accessible portfolio demonstration.',
+    body: 'Placeholder content for a bilingual portfolio. The final localized pages will replace this demonstration.',
+  },
+};
+
+const content = copy[locale];
+---
+
+<BaseLayout locale={locale} title="Portfolio" description={content.description}>
+  <section class="demo-intro" aria-labelledby="page-title">
+    <h1 id="page-title">{content.heading}</h1>
+    <p>{content.body}</p>
+  </section>
+</BaseLayout>

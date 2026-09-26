@@ -1,0 +1,26 @@
+---
+import { getLocalizedPath, navigationLabels, type Locale } from '../lib/i18n';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const labels = navigationLabels[locale];
+const links = [
+  ['projects', labels.projects],
+  ['journey', labels.journey],
+  ['cv', labels.cv],
+  ['about', labels.about],
+  ['contact', labels.contact],
+] as const;
+---
+
+<button class="menu-toggle" type="button" aria-controls="primary-navigation" aria-expanded="false" data-menu-toggle>
+  <span data-menu-label>Open menu</span>
+</button>
+<nav class="site-nav" id="primary-navigation" aria-label="Primary navigation" data-mobile-navigation>
+  <ul>
+    {links.map(([path, label]) => <li><a href={getLocalizedPath(locale, path)}>{label}</a></li>)}
+  </ul>
+</nav>

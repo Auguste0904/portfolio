@@ -1,12 +1,10 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<!doctype html>
-<html lang="fr">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Portfolio</title>
-  </head>
-  <body></body>
-</html>
+<BaseLayout locale="en" title="Portfolio" description="An accessible portfolio demonstration.">
+  <section class="demo-intro" aria-labelledby="page-title">
+    <h1 id="page-title">Editorial shell</h1>
+    <p>Placeholder content for a bilingual portfolio. The final localized pages will replace this demonstration.</p>
+  </section>
+</BaseLayout>
