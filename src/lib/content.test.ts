@@ -3,14 +3,14 @@ import { describe, expect, it } from 'vitest';
 import { projectSchema } from '../content.config';
 
 const validProject = {
-  title: 'Demo project',
-  slug: 'demo-project',
-  summary: 'An explicitly marked demonstration project.',
-  context: 'Demo context only.',
-  role: 'Demo role only.',
-  contributions: ['Demo contribution only.'],
+  title: 'Project',
+  slug: 'project',
+  summary: 'Project summary.',
+  context: 'Project context.',
+  role: 'Project role.',
+  contributions: ['Project contribution.'],
   technologies: ['TypeScript'],
-  outcomes: ['Demo outcome only.'],
+  outcomes: ['Project outcome.'],
   primaryTechnologies: ['typescript'],
 };
 
@@ -32,5 +32,13 @@ describe('project content schema', () => {
 
   it('rejects a project with no primary technologies', () => {
     expect(projectSchema.safeParse({ ...validProject, primaryTechnologies: [] }).success).toBe(false);
+  });
+
+  it('rejects an unregistered primary technology', () => {
+    expect(projectSchema.safeParse({ ...validProject, primaryTechnologies: ['unknown'] }).success).toBe(false);
+  });
+
+  it('rejects a primary technology missing from technologies', () => {
+    expect(projectSchema.safeParse({ ...validProject, primaryTechnologies: ['angular'] }).success).toBe(false);
   });
 });

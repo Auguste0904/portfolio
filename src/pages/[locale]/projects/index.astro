@@ -15,8 +15,8 @@ if (!locale || !isLocale(locale)) {
 }
 
 const copy: Record<Locale, { description: string; intro: string; title: string }> = {
-  fr: { title: 'Projets', description: 'Etudes de cas de demonstration.', intro: 'Des etudes de cas fictives, explicitement marquees comme demonstrations.' },
-  en: { title: 'Projects', description: 'Demonstration case studies.', intro: 'Fictional case studies, explicitly marked as demonstrations.' },
+  fr: { title: 'Projets', description: 'Études de cas issues d expériences professionnelles et de projets personnels.', intro: 'Une sélection de réalisations, présentée dans le respect des contraintes de confidentialité.' },
+  en: { title: 'Projects', description: 'Case studies from professional experience and personal projects.', intro: 'A selection of work presented with respect for confidentiality constraints.' },
 };
 const projects = await getProjects(locale);
 ---

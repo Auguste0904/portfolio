@@ -20,3 +20,20 @@
 
 - Unit coverage validates technology-registry base-path/fallback behavior, normalized phone contact links, and required project primary technologies.
 - The build uses the configured `/portfolio/` base path, and technology logo URLs are derived from `import.meta.env.BASE_URL`.
+
+## Review Fixes
+
+- The homepage now renders all six localized timeline milestones rather than truncating the journey to three items.
+- The hero has a dedicated localized role: `Développeur full-stack` in French and `Full-stack Developer` in English.
+- Project listings no longer describe real work as fictive or demonstration content.
+- Project details without GitHub or demo URLs explicitly render a localized public-link-unavailable message.
+- `bash` is a supported text-only technology registry ID and appears on the OPENCELL operations project card in both locales.
+- Project primary technologies must be registered and must correspond to an entry in the project's published `technologies` list.
+- Restored `src/lib/projects.test.ts` covers featured ordering, locale-local lookup, localized static paths, and French-English project slug parity.
+
+## Review Fix Verification
+
+- `npm run check`: passed with 0 errors, 0 warnings, and 0 hints.
+- `npm test`: passed with 7 test files and 27 tests.
+- `npm run build`: passed and generated 25 static pages, including both localized homepages and 12 project detail pages.
+- No files under `tests/e2e` were added, edited, deleted, or run.

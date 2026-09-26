@@ -5,8 +5,8 @@ summary: Management applications for Convivio.
 context: Professional project at Orange Business.
 role: Full-stack Developer.
 contributions: [Contributed to application development.]
-technologies: [Technology detail not published]
-primaryTechnologies: [Technology detail not published]
+technologies: [ASP.NET Core, Angular]
+primaryTechnologies: [dotnet, angular]
 outcomes: [Technical details are not published.]
 featured: true
 ---

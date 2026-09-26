@@ -84,7 +84,7 @@ const timeline = experience
 ---
 
 <BaseLayout locale={locale} title="Portfolio" description={content.description}>
-  <Hero eyebrow={content.eyebrow} heading={content.heading} intro={content.intro} projectsLabel={content.projectsCta} contactLabel={content.contactCta} />
+  <Hero eyebrow={content.eyebrow} heading={content.heading} intro={content.intro} role={locale === 'fr' ? 'Développeur full-stack' : 'Full-stack Developer'} projectsLabel={content.projectsCta} contactLabel={content.contactCta} />
 
   <section id="presentation" class="page-section" aria-labelledby="presentation-title"><div class="section-heading"><h2 id="presentation-title">{content.presentation}</h2></div><div class="skill-groups">{content.skillGroups.map((group) => <TechnologyGroup {...group} locale={locale} />)}</div></section>
 
@@ -105,7 +105,7 @@ const timeline = experience
       <h2 id="journey-title">{content.journey}</h2>
       <a href={getLocalizedPath(locale, 'journey')}>{content.journey}</a>
     </div>
-    <Timeline entries={timeline.slice(0, 3)} locale={locale} />
+    <Timeline entries={timeline} locale={locale} />
   </section>
 
 

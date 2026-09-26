@@ -6,7 +6,7 @@ context: Operations experience at OPENCELL.
 role: Operations.
 contributions: [Operational work with Kubernetes, Bash and Terraform.]
 technologies: [Kubernetes, Bash, Terraform]
-primaryTechnologies: [kubernetes, terraform]
+primaryTechnologies: [kubernetes, bash, terraform]
 outcomes: [Environment details are not published.]
 featured: false
 ---

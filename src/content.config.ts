@@ -1,6 +1,7 @@
 import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
+import { getTechnology, technologyIds } from './lib/technologies';
 
 export const projectSchema = z.object({
   title: z.string(),
@@ -10,13 +11,24 @@ export const projectSchema = z.object({
   role: z.string(),
   contributions: z.array(z.string()),
   technologies: z.array(z.string()).min(1),
-  primaryTechnologies: z.array(z.string()).min(1).max(4),
+  primaryTechnologies: z.array(z.enum(technologyIds)).min(1).max(4),
   outcomes: z.array(z.string()),
   featured: z.boolean().default(false),
   github: z.url().optional(),
   demo: z.url().optional(),
   image: z.string().optional(),
   imageAlt: z.string().optional(),
+}).superRefine(({ technologies, primaryTechnologies }, context) => {
+  for (const technology of primaryTechnologies) {
+    const registryTechnology = getTechnology(technology)?.label.en;
+    if (!registryTechnology || !technologies.includes(registryTechnology)) {
+      context.addIssue({
+        code: 'custom',
+        message: `Primary technology "${technology}" must be included in technologies.`,
+        path: ['primaryTechnologies'],
+      });
+    }
+  }
 });
 
 const projects = defineCollection({

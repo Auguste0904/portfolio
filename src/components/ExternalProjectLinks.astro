@@ -7,8 +7,8 @@ interface Props {
 
 const { demo, github, locale } = Astro.props;
 const copy = locale === 'fr'
-  ? { demo: 'Voir la demo', github: 'Voir le code sur GitHub', external: '(ouvre dans un nouvel onglet)' }
-  : { demo: 'View demo', github: 'View source on GitHub', external: '(opens in a new tab)' };
+  ? { demo: 'Voir la demo', github: 'Voir le code sur GitHub', external: '(ouvre dans un nouvel onglet)', unavailable: 'Les liens publics ne sont pas disponibles pour ce projet.' }
+  : { demo: 'View demo', github: 'View source on GitHub', external: '(opens in a new tab)', unavailable: 'Public links are not available for this project.' };
 ---
 
 {(github || demo) && (
@@ -17,3 +17,5 @@ const copy = locale === 'fr'
     {demo && <a href={demo} target="_blank" rel="noreferrer">{copy.demo} <span class="visually-hidden">{copy.external}</span></a>}
   </nav>
 )}
+
+{!(github || demo) && <p class="external-project-links__unavailable">{copy.unavailable}</p>}

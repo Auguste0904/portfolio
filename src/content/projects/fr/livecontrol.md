@@ -5,8 +5,8 @@ summary: Application de controle d acces pour le COJO 2024.
 context: Projet professionnel chez Orange Business.
 role: Developpeur full-stack.
 contributions: [Contribution au developpement de l application.]
-technologies: [Detail technologique non publie]
-primaryTechnologies: [Detail technologique non publie]
+technologies: [C#, ASP.NET Core, Angular]
+primaryTechnologies: [csharp, dotnet, angular]
 outcomes: [Les details techniques ne sont pas publies.]
 featured: true
 ---
