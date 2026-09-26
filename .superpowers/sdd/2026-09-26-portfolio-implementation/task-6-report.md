@@ -49,3 +49,12 @@ npm run build
 - `npm run test:e2e:base-path` is required to validate GitHub Pages-style output.
 - The real approved CV PDF belongs at `public/documents/cv.pdf`; it is intentionally not included in this repository.
 - All `[DEMO]` content and contact/link placeholders must be replaced only with owner-approved data.
+
+## Review Follow-up
+
+- Replaced the hand-built Pages artifact flow with the current official `withastro/action@v6` workflow. The action now performs the single artifact upload; `actions/configure-pages` and `actions/upload-pages-artifact` were removed.
+- Removed the unsupported `build-command` input, retained the supported `path`, `node-version`, and `package-manager` inputs, and updated checkout/deploy actions to the versions used by the current Astro documentation.
+- `PUBLIC_SITE_URL` is now documented exclusively as a repository variable and is passed to the build job through `${{ vars.PUBLIC_SITE_URL }}`. The build job does not rely on the `github-pages` deployment environment.
+- Marked the content-free root redirect `noindex`, with a regression assertion for that directive. The redirect keeps its existing canonical link and `/fr/` target.
+
+Verification of this follow-up: `npm run check` (0 errors), `npm run test` (17 passed), `npm run test:e2e` (36 passed, 1 intentionally skipped), and `npm run test:e2e:base-path` (1 passed after a `/portfolio/` build).

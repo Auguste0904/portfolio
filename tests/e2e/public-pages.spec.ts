@@ -5,6 +5,10 @@ const pages = ['', 'about', 'journey', 'cv', 'contact'];
 
 test.describe('public portfolio pages', () => {
   test('redirects the root document to the French homepage', async ({ page }) => {
+    const response = await page.request.get('/');
+
+    expect(await response.text()).toContain('<meta name="robots" content="noindex"');
+
     await page.goto('/');
 
     await expect(page).toHaveURL(/\/fr\/$/);

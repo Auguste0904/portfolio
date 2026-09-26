@@ -18,20 +18,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/configure-pages@v5
-      - uses: withastro/action@v3
+      - uses: actions/checkout@v7
+      - uses: withastro/action@v6
         with:
           path: .
-          node-version: 22
+          node-version: 24
           package-manager: npm
-          build-command: npm run build
         env:
           BASE_PATH: /portfolio/
           PUBLIC_SITE_URL: ${{ vars.PUBLIC_SITE_URL }}
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./dist
 
   deploy:
     environment:
@@ -41,4 +36,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5

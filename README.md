@@ -38,4 +38,4 @@ Le lien CV attend le vrai PDF a `public/documents/cv.pdf`. Ce fichier n'est volo
 PUBLIC_SITE_URL=https://example.github.io BASE_PATH=/nom-du-depot/ npm run build
 ```
 
-Le workflow `.github/workflows/deploy.yml` construit puis deploie le site lors d'un `push` sur `main` ou manuellement. Dans GitHub, ouvrez **Settings > Pages**, choisissez **GitHub Actions** comme source, puis definissez `PUBLIC_SITE_URL` comme variable de depot ou d'environnement avec l'URL publique reelle. Si le nom du depot n'est pas `portfolio`, modifiez aussi `BASE_PATH` dans le workflow.
+Le workflow `.github/workflows/deploy.yml` construit puis deploie le site lors d'un `push` sur `main` ou manuellement. Dans GitHub, ouvrez **Settings > Pages**, choisissez **GitHub Actions** comme source, puis definissez `PUBLIC_SITE_URL` comme variable de depot avec l'URL publique reelle. Si le nom du depot n'est pas `portfolio`, modifiez aussi `BASE_PATH` dans le workflow. La page racine ne contient qu'une redirection vers `/fr/` et est intentionnellement `noindex`.
