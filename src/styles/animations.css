@@ -1,3 +1,15 @@
+@media (prefers-reduced-motion: no-preference) {
+  .project-card,
+  .button-link,
+  .contact-links a,
+  .external-project-links a,
+  .site-nav a,
+  .language-switcher,
+  .menu-toggle {
+    transition: background-color 160ms ease, color 160ms ease, transform 160ms ease, border-color 160ms ease;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms;
