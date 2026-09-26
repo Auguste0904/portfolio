@@ -26,6 +26,6 @@ const copy = locale === 'fr'
   <section class="page-content" aria-labelledby="page-title">
     <h1 id="page-title">{copy.title}</h1>
     <p class="page-intro">{copy.intro}</p>
-    <Timeline entries={entries} />
+    <Timeline entries={entries} locale={locale} />
   </section>
 </BaseLayout>

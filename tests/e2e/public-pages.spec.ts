@@ -31,4 +31,18 @@ test.describe('public portfolio pages', () => {
     await expect(page.getByRole('link', { name: /linkedin/i })).toBeVisible();
     await expect(page.getByRole('link', { name: /github/i })).toBeVisible();
   });
+
+  test('localizes timeline dates on homepage previews and journey pages', async ({ page }) => {
+    await page.goto('/fr/');
+    await expect(page.locator('.timeline__dates').first()).toHaveText('mars 2025 - Aujourd’hui');
+
+    await page.goto('/fr/journey/');
+    await expect(page.locator('.timeline__dates').first()).toHaveText('mars 2025 - Aujourd’hui');
+
+    await page.goto('/en/');
+    await expect(page.locator('.timeline__dates').first()).toHaveText('Mar 2025 - Present');
+
+    await page.goto('/en/journey/');
+    await expect(page.locator('.timeline__dates').first()).toHaveText('Mar 2025 - Present');
+  });
 });

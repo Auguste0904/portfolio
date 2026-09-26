@@ -1,12 +1,15 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import type { Locale } from '../lib/i18n';
 
 interface Props {
   entries: CollectionEntry<'experience'>[];
+  locale: Locale;
 }
 
-const { entries } = Astro.props;
-const formatter = new Intl.DateTimeFormat('en', { month: 'short', year: 'numeric' });
+const { entries, locale } = Astro.props;
+const formatter = new Intl.DateTimeFormat(locale, { month: 'short', year: 'numeric' });
+const presentLabel = locale === 'fr' ? 'Aujourd’hui' : 'Present';
 ---
 
 <ol class="timeline">
@@ -15,7 +18,7 @@ const formatter = new Intl.DateTimeFormat('en', { month: 'short', year: 'numeric
       <p class="timeline__dates">
         <time datetime={entry.data.startDate.toISOString()}>{formatter.format(entry.data.startDate)}</time>
         {' - '}
-        {entry.data.endDate ? <time datetime={entry.data.endDate.toISOString()}>{formatter.format(entry.data.endDate)}</time> : 'Present'}
+        {entry.data.endDate ? <time datetime={entry.data.endDate.toISOString()}>{formatter.format(entry.data.endDate)}</time> : presentLabel}
       </p>
       <h3>{entry.data.title}</h3>
       <p>{entry.data.summary}</p>
