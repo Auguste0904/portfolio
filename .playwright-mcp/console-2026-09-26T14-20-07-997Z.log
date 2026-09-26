@@ -1,0 +1,4 @@
+[      -9ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/fr/:0
+[     232ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:4321/favicon.ico:0
+[ 1507959ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/fr/:0
+[ 1508023ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/favicon.ico:0

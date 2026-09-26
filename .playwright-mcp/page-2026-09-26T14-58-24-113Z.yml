@@ -1,0 +1,129 @@
+- generic [ref=f29e1]:
+  - link "Skip to main content" [ref=f29e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=f29e3]:
+    - generic [ref=f29e4]:
+      - link "Portfolio demo" [ref=f29e5] [cursor=pointer]:
+        - /url: /portfolio/en/
+      - button "Open menu" [ref=f29e6]
+      - link "Français" [ref=f29e7] [cursor=pointer]:
+        - /url: /portfolio/fr/
+  - main [ref=f29e8]:
+    - region [ref=f29e9]:
+      - paragraph [ref=f29e10]: Full-stack portfolio
+      - heading "Digital products built with clarity." [level=1] [ref=f29e11]
+      - paragraph [ref=f29e12]: I turn complex needs into accessible, maintainable and useful web experiences.
+      - generic [ref=f29e13]:
+        - link "View projects" [ref=f29e14] [cursor=pointer]:
+          - /url: "#projects"
+        - link "Get in touch" [ref=f29e15] [cursor=pointer]:
+          - /url: "#contact"
+    - region [active] [ref=f29e16]:
+      - generic [ref=f29e17]:
+        - heading "Selected projects" [level=2] [ref=f29e18]
+        - link "View projects" [ref=f29e19] [cursor=pointer]:
+          - /url: /portfolio/en/projects/
+      - generic [ref=f29e20]:
+        - article [ref=f29e21]:
+          - heading "[DEMO] Atlas" [level=3] [ref=f29e22]
+          - paragraph [ref=f29e23]: "[DEMO] Fictional case study to replace with a real project."
+          - list "Technologies" [ref=f29e24]:
+            - listitem [ref=f29e25]: TypeScript
+            - listitem [ref=f29e26]: Astro
+          - link "Read case study" [ref=f29e27] [cursor=pointer]:
+            - /url: /portfolio/en/projects/atlas/
+        - article [ref=f29e28]:
+          - heading "[DEMO] Signal" [level=3] [ref=f29e29]
+          - paragraph [ref=f29e30]: "[DEMO] Fictional case study to replace with a real project."
+          - list "Technologies" [ref=f29e31]:
+            - listitem [ref=f29e32]: TypeScript
+            - listitem [ref=f29e33]: API
+          - link "Read case study" [ref=f29e34] [cursor=pointer]:
+            - /url: /portfolio/en/projects/signal/
+        - article [ref=f29e35]:
+          - heading "[DEMO] Canvas" [level=3] [ref=f29e36]
+          - paragraph [ref=f29e37]: "[DEMO] Fictional case study to replace with a real project."
+          - list "Technologies" [ref=f29e38]:
+            - listitem [ref=f29e39]: TypeScript
+            - listitem [ref=f29e40]: CSS
+          - link "Read case study" [ref=f29e41] [cursor=pointer]:
+            - /url: /portfolio/en/projects/canvas/
+        - article [ref=f29e42]:
+          - heading "[DEMO] Horizon" [level=3] [ref=f29e43]
+          - paragraph [ref=f29e44]: "[DEMO] Fictional case study to replace with a real project."
+          - list "Technologies" [ref=f29e45]:
+            - listitem [ref=f29e46]: TypeScript
+            - listitem [ref=f29e47]: Testing
+          - link "Read case study" [ref=f29e48] [cursor=pointer]:
+            - /url: /portfolio/en/projects/horizon/
+    - region [ref=f29e49]:
+      - generic [ref=f29e50]:
+        - heading "Journey" [level=2] [ref=f29e51]
+        - link "Journey" [ref=f29e52] [cursor=pointer]:
+          - /url: /portfolio/en/journey/
+      - list [ref=f29e53]:
+        - listitem [ref=f29e54]:
+          - paragraph [ref=f29e55]:
+            - time [ref=f29e56]: Mar 2025
+            - text: "- Present"
+          - heading "[DEMO] Next step" [level=2] [ref=f29e57]
+          - paragraph [ref=f29e58]: "[DEMO] Fictional professional milestone to replace."
+        - listitem [ref=f29e59]:
+          - paragraph [ref=f29e60]:
+            - time [ref=f29e61]: Jul 2024
+            - text: "-"
+            - time [ref=f29e62]: Feb 2025
+          - heading "[DEMO] Product delivery" [level=2] [ref=f29e63]
+          - paragraph [ref=f29e64]: "[DEMO] Fictional experience to replace."
+        - listitem [ref=f29e65]:
+          - paragraph [ref=f29e66]:
+            - time [ref=f29e67]: Jan 2024
+            - text: "-"
+            - time [ref=f29e68]: Jun 2024
+          - heading "[DEMO] Technical foundation" [level=2] [ref=f29e69]
+          - paragraph [ref=f29e70]: "[DEMO] Fictional learning milestone to replace."
+    - region [ref=f29e71]:
+      - heading "Skills" [level=2] [ref=f29e73]
+      - generic [ref=f29e74]:
+        - region [ref=f29e75]:
+          - heading "Interfaces" [level=3] [ref=f29e76]
+          - list [ref=f29e77]:
+            - listitem [ref=f29e78]: Astro
+            - listitem [ref=f29e79]: TypeScript
+            - listitem [ref=f29e80]: CSS
+        - region [ref=f29e81]:
+          - heading "Services" [level=3] [ref=f29e82]
+          - list [ref=f29e83]:
+            - listitem [ref=f29e84]: API
+        - region [ref=f29e85]:
+          - heading "Quality" [level=3] [ref=f29e86]
+          - list [ref=f29e87]:
+            - listitem [ref=f29e88]: Testing
+    - region [ref=f29e89]:
+      - generic [ref=f29e90]:
+        - heading "CV" [level=2] [ref=f29e91]
+        - paragraph [ref=f29e92]: A concise summary of experience and selected work.
+      - generic [ref=f29e93]:
+        - link "View CV page" [ref=f29e94] [cursor=pointer]:
+          - /url: /portfolio/en/cv/
+        - paragraph [ref=f29e95]: A PDF version will be available soon.
+    - region [ref=f29e96]:
+      - heading "Let us connect directly." [level=2] [ref=f29e97]
+      - list [ref=f29e98]:
+        - listitem [ref=f29e99]:
+          - link "Email" [ref=f29e100] [cursor=pointer]:
+            - /url: mailto:[replace-with-contact-email@example.com]
+        - listitem [ref=f29e101]:
+          - link "LinkedIn" [ref=f29e102] [cursor=pointer]:
+            - /url: "[replace-with-linkedin-url]"
+        - listitem [ref=f29e103]:
+          - link "GitHub" [ref=f29e104] [cursor=pointer]:
+            - /url: "[replace-with-github-url]"
+  - contentinfo [ref=f29e105]:
+    - generic [ref=f29e106]: Portfolio demonstration
+    - generic [ref=f29e107]: Static and accessible
+  - generic [ref=f29e110]:
+    - button [ref=f29e111]
+    - button [ref=f29e117]
+    - button [ref=f29e121]
+    - button [ref=f29e129]

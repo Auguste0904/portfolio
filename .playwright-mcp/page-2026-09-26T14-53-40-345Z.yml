@@ -1,0 +1,63 @@
+- generic [active] [ref=f21e1]:
+  - link "Aller au contenu principal" [ref=f21e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=f21e3]:
+    - generic [ref=f21e4]:
+      - link "Portfolio demo" [ref=f21e5] [cursor=pointer]:
+        - /url: /portfolio/fr/
+      - navigation "Navigation principale" [ref=f21e6]:
+        - list [ref=f21e7]:
+          - listitem [ref=f21e8]:
+            - link "Profil" [ref=f21e9] [cursor=pointer]:
+              - /url: /portfolio/fr/#profile
+          - listitem [ref=f21e10]:
+            - link "Projets" [ref=f21e11] [cursor=pointer]:
+              - /url: /portfolio/fr/#projects
+          - listitem [ref=f21e12]:
+            - link "Parcours" [ref=f21e13] [cursor=pointer]:
+              - /url: /portfolio/fr/#journey
+          - listitem [ref=f21e14]:
+            - link "Competences" [ref=f21e15] [cursor=pointer]:
+              - /url: /portfolio/fr/#skills
+          - listitem [ref=f21e16]:
+            - link "CV" [ref=f21e17] [cursor=pointer]:
+              - /url: /portfolio/fr/#cv
+          - listitem [ref=f21e18]:
+            - link "Contact" [ref=f21e19] [cursor=pointer]:
+              - /url: /portfolio/fr/#contact
+      - link "English" [ref=f21e20] [cursor=pointer]:
+        - /url: /portfolio/en/projects/atlas/
+  - main [ref=f21e21]:
+    - article [ref=f21e22]:
+      - paragraph [ref=f21e23]: Étude de cas
+      - heading "[DEMO] Atlas" [level=1] [ref=f21e24]
+      - paragraph [ref=f21e25]: "[DEMO] Etude de cas fictive a remplacer par un projet reel."
+      - generic [ref=f21e27]:
+        - heading "Problème" [level=2] [ref=f21e28]
+        - paragraph [ref=f21e29]: "[DEMO] Etude de cas fictive a remplacer par un projet reel."
+      - generic [ref=f21e30]:
+        - heading "Contexte et rôle" [level=2] [ref=f21e31]
+        - paragraph [ref=f21e32]: "[DEMO] Contexte fictif, sans client ni donnees reelles."
+        - paragraph [ref=f21e33]: "[DEMO] Role fictif a remplacer."
+      - generic [ref=f21e34]:
+        - heading "Solution" [level=2] [ref=f21e35]
+        - list [ref=f21e36]:
+          - listitem [ref=f21e37]: "[DEMO] Contribution fictive a remplacer."
+      - region "Technologies" [ref=f21e39]:
+        - heading "Technologies" [level=2] [ref=f21e40]
+        - list [ref=f21e41]:
+          - listitem [ref=f21e42]: TypeScript
+          - listitem [ref=f21e43]: Astro
+      - generic [ref=f21e44]:
+        - heading "Résultats et apprentissages" [level=2] [ref=f21e45]
+        - list [ref=f21e46]:
+          - listitem [ref=f21e47]: "[DEMO] Resultat fictif a remplacer."
+        - paragraph [ref=f21e49]: Ce contenu est une demonstration explicite et ne decrit aucun projet reel.
+  - contentinfo [ref=f21e50]:
+    - generic [ref=f21e51]: Portfolio de demonstration
+    - generic [ref=f21e52]: Statique et accessible
+  - generic [ref=f21e55]:
+    - button [ref=f21e56]
+    - button [ref=f21e62]
+    - button [ref=f21e66]
+    - button [ref=f21e74]

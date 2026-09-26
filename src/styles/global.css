@@ -17,6 +17,7 @@ a:hover { color: var(--color-accent-dark); }
 
 .skip-link {
   background: var(--color-accent);
+  border-radius: var(--radius-sm);
   color: var(--color-ink);
   left: var(--space-2);
   padding: var(--space-1) var(--space-2);
@@ -35,7 +36,7 @@ a:hover { color: var(--color-accent-dark); }
 
 .site-brand { font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1; text-decoration: none; }
 
-.menu-toggle { background: transparent; border: 1px solid var(--color-line); color: var(--color-ink); font: inherit; font-size: 0.8rem; font-weight: 700; padding: 0.55rem 0.75rem; }
+.menu-toggle { background: transparent; border: 1px solid var(--color-line); border-radius: var(--radius-sm); color: var(--color-ink); font: inherit; font-size: 0.8rem; font-weight: 700; padding: 0.55rem 0.75rem; }
 .menu-toggle:hover { border-color: var(--color-accent-dark); color: var(--color-accent-dark); }
 
 .site-nav { grid-column: 1 / -1; }
@@ -67,7 +68,7 @@ a:hover { color: var(--color-accent-dark); }
 
 .project-grid { display: grid; gap: var(--space-2); margin-top: var(--space-3); }
 
-.project-card { background: var(--color-paper-deep); border: 1px solid var(--color-line); color: var(--color-ink); display: flex; flex-direction: column; min-height: 17rem; padding: var(--space-3); }
+.project-card { background: var(--color-paper-deep); border: 1px solid var(--color-line); border-radius: var(--radius-lg); color: var(--color-ink); display: flex; flex-direction: column; min-height: 17rem; padding: var(--space-3); }
 
 .project-card h3, .timeline h2 { font-family: var(--font-display); font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 700; letter-spacing: -0.025em; line-height: 1.05; margin: 0; max-width: 14ch; }
 
@@ -75,7 +76,7 @@ a:hover { color: var(--color-accent-dark); }
 
 .project-card ul, .contact-links { display: flex; flex-wrap: wrap; gap: var(--space-1); list-style: none; margin: 0; padding: 0; }
 
-.project-card li { border: 1px solid var(--color-line); font-size: 0.78rem; padding: 0.25rem 0.45rem; }
+.project-card li { border: 1px solid var(--color-line); border-radius: var(--radius-sm); font-size: 0.78rem; padding: 0.25rem 0.45rem; }
 .technology-badge { align-items: center; display: inline-flex; gap: 0.35rem; }
 .technology-badge img { flex: 0 0 auto; }
 
@@ -91,7 +92,7 @@ a:hover { color: var(--color-accent-dark); }
 
 .project-case-study section { border-top: 1px solid var(--color-line); padding-top: var(--space-2); }
 
-.project-image, .project-image-fallback { aspect-ratio: 16 / 9; width: 100%; }
+.project-image, .project-image-fallback { aspect-ratio: 16 / 9; border-radius: var(--radius-lg); width: 100%; }
 
 .project-image { object-fit: cover; }
 
@@ -99,7 +100,7 @@ a:hover { color: var(--color-accent-dark); }
 
 .project-meta ul, .external-project-links { display: flex; flex-wrap: wrap; gap: var(--space-1); list-style: none; margin: 0; padding: 0; }
 
-.project-meta li, .external-project-links a { border: 1px solid var(--color-line); padding: 0.35rem 0.5rem; }
+.project-meta li, .external-project-links a { border: 1px solid var(--color-line); border-radius: var(--radius-sm); padding: 0.35rem 0.5rem; }
 
 .external-project-links a { text-decoration: none; }
 
@@ -117,19 +118,25 @@ a:hover { color: var(--color-accent-dark); }
 
 .prose { line-height: 1.65; }
 
-.button-link { background: var(--color-ink); color: var(--color-paper); display: inline-block; font-size: 0.88rem; font-weight: 700; padding: 0.8rem 1rem; text-decoration: none; }
+.button-link { background: var(--color-ink); border-radius: var(--radius-sm); color: var(--color-paper); display: inline-block; font-size: 0.88rem; font-weight: 700; padding: 0.8rem 1rem; text-decoration: none; }
 .button-link:hover { background: var(--color-accent-dark); color: var(--color-paper); }
 
 .contact-links { margin-top: var(--space-3); }
 
-.contact-links a { background: var(--color-paper); border: 1px solid var(--color-line); display: inline-block; font-size: 0.88rem; font-weight: 700; padding: 0.75rem 0.9rem; text-decoration: none; }
+.contact-details { display: grid; gap: var(--space-1); margin: var(--space-2) 0 0; }
+.contact-details div { align-items: baseline; display: grid; gap: var(--space-2); grid-template-columns: minmax(7rem, 0.35fr) 1fr; }
+.contact-details dt { color: var(--color-muted); font-size: 0.85rem; font-weight: 700; }
+.contact-details dd { margin: 0; }
+.contact-details a { color: var(--color-ink); text-underline-offset: 0.25em; }
+
+.contact-links a { background: var(--color-paper); border: 1px solid var(--color-line); border-radius: var(--radius-sm); display: inline-block; font-size: 0.88rem; font-weight: 700; padding: 0.75rem 0.9rem; text-decoration: none; }
 .contact-links a:hover { border-color: var(--color-accent-dark); color: var(--color-accent-dark); }
 
 .skill-groups { display: grid; gap: var(--space-2); margin-top: var(--space-3); }
-.technology-group, .ai-practice > section { background: var(--color-paper-deep); border: 1px solid var(--color-line); padding: var(--space-2); }
+.technology-group, .ai-practice > section { background: var(--color-paper-deep); border: 1px solid var(--color-line); border-radius: var(--radius-md); padding: var(--space-2); }
 .technology-group h3, .ai-practice h3 { font-size: 1rem; margin: 0 0 var(--space-2); }
 .technology-group ul, .technology-list { display: flex; flex-wrap: wrap; gap: var(--space-1); list-style: none; margin: 0; padding: 0; }
-.technology-group li { background: var(--color-paper); font-size: 0.85rem; padding: 0.35rem 0.5rem; }
+.technology-group li { background: var(--color-paper); border-radius: var(--radius-sm); font-size: 0.85rem; padding: 0.35rem 0.5rem; }
 .ai-practice { display: grid; gap: var(--space-2); margin-top: var(--space-3); }
 .ai-practice p { color: var(--color-ink-soft); line-height: 1.6; }
 .cv-callout { align-items: end; display: grid; gap: var(--space-3); }
@@ -151,5 +158,6 @@ a:hover { color: var(--color-accent-dark); }
   .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .skill-groups { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .cv-callout, .contact-callout { grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.8fr); }
-  .contact-callout .contact-links { align-self: end; justify-content: flex-end; }
+  .contact-callout .contact-details, .contact-callout .contact-links { align-self: end; }
+  .contact-callout .contact-links { justify-content: flex-end; }
 }

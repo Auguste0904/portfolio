@@ -1,0 +1,37 @@
+- generic [active] [ref=f41e1]:
+  - link "Skip to main content" [ref=f41e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=f41e3]:
+    - generic [ref=f41e4]:
+      - link "Portfolio demo" [ref=f41e5] [cursor=pointer]:
+        - /url: /portfolio/en/
+      - navigation "Primary navigation" [ref=f41e6]:
+        - list [ref=f41e7]:
+          - listitem [ref=f41e8]:
+            - link "Profile" [ref=f41e9] [cursor=pointer]:
+              - /url: /portfolio/en/#profile
+          - listitem [ref=f41e10]:
+            - link "Projects" [ref=f41e11] [cursor=pointer]:
+              - /url: /portfolio/en/#projects
+          - listitem [ref=f41e12]:
+            - link "Journey" [ref=f41e13] [cursor=pointer]:
+              - /url: /portfolio/en/#journey
+          - listitem [ref=f41e14]:
+            - link "Skills" [ref=f41e15] [cursor=pointer]:
+              - /url: /portfolio/en/#skills
+          - listitem [ref=f41e16]:
+            - link "CV" [ref=f41e17] [cursor=pointer]:
+              - /url: /portfolio/en/#cv
+          - listitem [ref=f41e18]:
+            - link "Contact" [ref=f41e19] [cursor=pointer]:
+              - /url: /portfolio/en/#contact
+      - link "Français" [ref=f41e20] [cursor=pointer]:
+        - /url: /portfolio/fr/contact/
+  - main [ref=f41e21]:
+    - region [ref=f41e22]:
+      - heading "Contact" [level=1] [ref=f41e23]
+      - paragraph [ref=f41e24]: For a project or opportunity, please contact me directly.
+      - paragraph [ref=f41e25]: Contact details will be available once configured.
+  - contentinfo [ref=f41e26]:
+    - generic [ref=f41e27]: Portfolio demonstration
+    - generic [ref=f41e28]: Static and accessible

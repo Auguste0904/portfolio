@@ -4,10 +4,10 @@ import type { Locale } from '../lib/i18n';
 interface Props { locale: Locale; }
 const { locale } = Astro.props;
 const copy = locale === 'fr' ? {
-  practice: 'Pratique du developpement assiste par IA', models: 'Familiarite avec les modeles', experience: 'Experience produit confirmee',
-  practiceText: 'OpenCode, les plugins oh-my-openagent, ses agents, ses skills et les integrations MCP accompagnent l exploration du code, la structuration du travail, la consultation de documentation et la verification. Le jugement d ingenierie reste au centre des revues.',
-  modelsText: 'Claude Sonnet, GPT-5.6 Terra, Qwen 3.6 et Qwen 3.8, avec une connaissance des ecosystemes proprietaires et open source.',
-  experienceText: 'Chez Orange Business, experience sur une application Microsoft Teams de generation de comptes rendus de reunion avec Orange Live Intelligence. Les details de mise en oeuvre et les informations produit confidentielles ne sont pas publies.',
+  practice: 'Pratique du développement assisté par IA', models: 'Familiarité avec les modèles', experience: 'Expérience produit confirmée',
+  practiceText: 'OpenCode, les plugins oh-my-openagent, ses agents, ses skills et les intégrations MCP accompagnent l’exploration du code, la structuration du travail, la consultation de documentation et la vérification. Le jugement d’ingénierie reste au centre des revues.',
+  modelsText: 'Claude Sonnet, GPT-5.6 Terra, Qwen 3.6 et Qwen 3.8, avec une connaissance des écosystèmes propriétaires et open source.',
+  experienceText: 'Chez Orange Business, expérience sur une application Microsoft Teams de génération de comptes rendus de réunion avec Orange Live Intelligence. Les détails de mise en œuvre et les informations produit confidentielles ne sont pas publiés.',
 } : {
   practice: 'AI-assisted development practice', models: 'Model familiarity', experience: 'Confirmed product experience',
   practiceText: 'OpenCode, oh-my-openagent plugins, agents, skills and MCP integrations support codebase exploration, implementation planning, documentation consultation and verification. Engineering review remains central.',

@@ -1,0 +1,64 @@
+- generic [ref=f28e1]:
+  - link "Skip to main content" [ref=f28e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=f28e3]:
+    - generic [ref=f28e4]:
+      - link "Portfolio demo" [ref=f28e5] [cursor=pointer]:
+        - /url: /portfolio/en/
+      - button "Close menu" [expanded] [ref=f28e66]
+      - navigation "Primary navigation" [ref=f28e67]:
+        - list [ref=f28e68]:
+          - listitem [ref=f28e69]:
+            - link "Profile" [active] [ref=f28e70] [cursor=pointer]:
+              - /url: /portfolio/en/#profile
+          - listitem [ref=f28e71]:
+            - link "Projects" [ref=f28e72] [cursor=pointer]:
+              - /url: /portfolio/en/#projects
+          - listitem [ref=f28e73]:
+            - link "Journey" [ref=f28e74] [cursor=pointer]:
+              - /url: /portfolio/en/#journey
+          - listitem [ref=f28e75]:
+            - link "Skills" [ref=f28e76] [cursor=pointer]:
+              - /url: /portfolio/en/#skills
+          - listitem [ref=f28e77]:
+            - link "CV" [ref=f28e78] [cursor=pointer]:
+              - /url: /portfolio/en/#cv
+          - listitem [ref=f28e79]:
+            - link "Contact" [ref=f28e80] [cursor=pointer]:
+              - /url: /portfolio/en/#contact
+      - link "Français" [ref=f28e7] [cursor=pointer]:
+        - /url: /portfolio/fr/projects/atlas/
+  - main [ref=f28e8]:
+    - article [ref=f28e9]:
+      - paragraph [ref=f28e10]: Case study
+      - heading "[DEMO] Atlas" [level=1] [ref=f28e11]
+      - paragraph [ref=f28e12]: "[DEMO] Fictional case study to replace with a real project."
+      - generic [ref=f28e14]:
+        - heading "Problem" [level=2] [ref=f28e15]
+        - paragraph [ref=f28e16]: "[DEMO] Fictional case study to replace with a real project."
+      - generic [ref=f28e17]:
+        - heading "Context and role" [level=2] [ref=f28e18]
+        - paragraph [ref=f28e19]: "[DEMO] Fictional context with no client or real data."
+        - paragraph [ref=f28e20]: "[DEMO] Fictional role to replace."
+      - generic [ref=f28e21]:
+        - heading "Solution" [level=2] [ref=f28e22]
+        - list [ref=f28e23]:
+          - listitem [ref=f28e24]: "[DEMO] Fictional contribution to replace."
+      - region "Technology" [ref=f28e26]:
+        - heading "Technology" [level=2] [ref=f28e27]
+        - list [ref=f28e28]:
+          - listitem [ref=f28e29]: TypeScript
+          - listitem [ref=f28e30]: Astro
+      - generic [ref=f28e31]:
+        - heading "Outcomes and learning" [level=2] [ref=f28e32]
+        - list [ref=f28e33]:
+          - listitem [ref=f28e34]: "[DEMO] Fictional outcome to replace."
+        - paragraph [ref=f28e36]: This is explicitly demonstration content and does not describe a real project.
+  - contentinfo [ref=f28e37]:
+    - generic [ref=f28e38]: Portfolio demonstration
+    - generic [ref=f28e39]: Static and accessible
+  - generic [ref=f28e42]:
+    - button [ref=f28e43]
+    - button [ref=f28e49]
+    - button [ref=f28e53]
+    - button [ref=f28e61]

@@ -1,6 +1,6 @@
 ---
-title: 'A propos'
-description: 'Presentation d Auguste ALEXANDRE, Developpeur full-stack.'
+title: 'À propos'
+description: 'Présentation d’Auguste ALEXANDRE, Développeur full-stack.'
 ---
 
-Developpeur full-stack diplome d EPITECH, Auguste ALEXANDRE travaille sur des applications full-stack depuis 2020. Il evolue aujourd hui chez Orange Business entre developpement et production.
+Développeur full-stack diplômé d’EPITECH, Auguste ALEXANDRE travaille sur des applications full-stack depuis 2020. Il évolue aujourd’hui chez Orange Business entre développement et production.

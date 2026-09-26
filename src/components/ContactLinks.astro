@@ -9,11 +9,15 @@ interface Props {
 const { locale } = Astro.props;
 const links = getConfiguredContactLinks(site);
 const unavailableMessage = locale === 'fr'
-  ? 'Les coordonnees seront disponibles une fois configurees.'
+  ? 'Les coordonnées seront disponibles une fois configurées.'
   : 'Contact details will be available once configured.';
 ---
 
-<p class="contact-location">{locale === 'fr' ? 'Localisation : ' : 'Location: '}{site.location}</p>
+<dl class="contact-details">
+  <div><dt>{locale === 'fr' ? 'E-mail' : 'Email'}</dt><dd><a href={`mailto:${site.email}`}>{site.email}</a></dd></div>
+  <div><dt>{locale === 'fr' ? 'Téléphone' : 'Phone'}</dt><dd><a href="tel:+33695515080">{site.phone}</a></dd></div>
+  <div><dt>{locale === 'fr' ? 'Localisation' : 'Location'}</dt><dd>{site.location}</dd></div>
+</dl>
 {links.length > 0 ? (
   <ul class="contact-links">
     {links.map((link) => <li><a href={link.href}>{link.label}</a></li>)}

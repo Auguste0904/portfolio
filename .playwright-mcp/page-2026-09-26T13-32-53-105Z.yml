@@ -1,0 +1,94 @@
+- generic [active] [ref=f1e1]:
+  - link "Aller au contenu principal" [ref=f1e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=f1e3]:
+    - generic [ref=f1e4]:
+      - link "Portfolio demo" [ref=f1e5] [cursor=pointer]:
+        - /url: /portfolio/fr/
+      - navigation "Navigation principale" [ref=f1e6]:
+        - list [ref=f1e7]:
+          - listitem [ref=f1e8]:
+            - link "Projets" [ref=f1e9] [cursor=pointer]:
+              - /url: /portfolio/fr/projects/
+          - listitem [ref=f1e10]:
+            - link "Parcours" [ref=f1e11] [cursor=pointer]:
+              - /url: /portfolio/fr/journey/
+          - listitem [ref=f1e12]:
+            - link "CV" [ref=f1e13] [cursor=pointer]:
+              - /url: /portfolio/fr/cv/
+          - listitem [ref=f1e14]:
+            - link "A propos" [ref=f1e15] [cursor=pointer]:
+              - /url: /portfolio/fr/about/
+          - listitem [ref=f1e16]:
+            - link "Contact" [ref=f1e17] [cursor=pointer]:
+              - /url: /portfolio/fr/contact/
+      - link "English" [ref=f1e18] [cursor=pointer]:
+        - /url: /portfolio/en/
+  - main [ref=f1e19]:
+    - region [ref=f1e20]:
+      - paragraph [ref=f1e21]: Portfolio full-stack
+      - heading "Des produits numeriques construits avec clarte." [level=1] [ref=f1e22]
+      - paragraph [ref=f1e23]: Je transforme des besoins complexes en experiences web accessibles, maintenables et utiles.
+    - region [ref=f1e24]:
+      - generic [ref=f1e25]:
+        - heading "Projets selectionnes" [level=2] [ref=f1e26]
+        - link "Voir les projets" [ref=f1e27] [cursor=pointer]:
+          - /url: /portfolio/fr/projects/
+      - generic [ref=f1e28]:
+        - article [ref=f1e29]:
+          - heading "[DEMO] Atlas" [level=3] [ref=f1e30]
+          - paragraph [ref=f1e31]: "[DEMO] Etude de cas fictive a remplacer par un projet reel."
+          - list "Technologies" [ref=f1e32]:
+            - listitem [ref=f1e33]: TypeScript
+            - listitem [ref=f1e34]: Astro
+          - link "Lire l etude de cas" [ref=f1e35] [cursor=pointer]:
+            - /url: /portfolio/fr/projects/atlas/
+        - article [ref=f1e36]:
+          - heading "[DEMO] Signal" [level=3] [ref=f1e37]
+          - paragraph [ref=f1e38]: "[DEMO] Etude de cas fictive a remplacer par un projet reel."
+          - list "Technologies" [ref=f1e39]:
+            - listitem [ref=f1e40]: TypeScript
+            - listitem [ref=f1e41]: API
+          - link "Lire l etude de cas" [ref=f1e42] [cursor=pointer]:
+            - /url: /portfolio/fr/projects/signal/
+    - region [ref=f1e43]:
+      - generic [ref=f1e44]:
+        - heading "Parcours" [level=2] [ref=f1e45]
+        - link "Parcours" [ref=f1e46] [cursor=pointer]:
+          - /url: /portfolio/fr/journey/
+      - list [ref=f1e47]:
+        - listitem [ref=f1e48]:
+          - paragraph [ref=f1e49]:
+            - time [ref=f1e50]: mars 2025
+            - text: "- Aujourd’hui"
+          - heading "[DEMO] Prochaine etape" [level=2] [ref=f1e51]
+          - paragraph [ref=f1e52]: "[DEMO] Etape professionnelle fictive a remplacer."
+        - listitem [ref=f1e53]:
+          - paragraph [ref=f1e54]:
+            - time [ref=f1e55]: juil. 2024
+            - text: "-"
+            - time [ref=f1e56]: févr. 2025
+          - heading "[DEMO] Livraison produit" [level=2] [ref=f1e57]
+          - paragraph [ref=f1e58]: "[DEMO] Experience fictive a remplacer."
+        - listitem [ref=f1e59]:
+          - paragraph [ref=f1e60]:
+            - time [ref=f1e61]: janv. 2024
+            - text: "-"
+            - time [ref=f1e62]: juin 2024
+          - heading "[DEMO] Fondation technique" [level=2] [ref=f1e63]
+          - paragraph [ref=f1e64]: "[DEMO] Etape de formation fictive a remplacer."
+    - region [ref=f1e65]:
+      - heading "Echangeons directement." [level=2] [ref=f1e66]
+      - list [ref=f1e67]:
+        - listitem [ref=f1e68]:
+          - link "Email" [ref=f1e69] [cursor=pointer]:
+            - /url: mailto:[replace-with-contact-email@example.com]
+        - listitem [ref=f1e70]:
+          - link "LinkedIn" [ref=f1e71] [cursor=pointer]:
+            - /url: "[replace-with-linkedin-url]"
+        - listitem [ref=f1e72]:
+          - link "GitHub" [ref=f1e73] [cursor=pointer]:
+            - /url: "[replace-with-github-url]"
+  - contentinfo [ref=f1e74]:
+    - generic [ref=f1e75]: Portfolio de demonstration
+    - generic [ref=f1e76]: Statique et accessible

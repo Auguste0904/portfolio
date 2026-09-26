@@ -1,0 +1,144 @@
+- generic [active] [ref=f17e1]:
+  - link "Aller au contenu principal" [ref=f17e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=f17e3]:
+    - generic [ref=f17e4]:
+      - link "Portfolio demo" [ref=f17e5] [cursor=pointer]:
+        - /url: /portfolio/fr/
+      - navigation "Navigation principale" [ref=f17e6]:
+        - list [ref=f17e7]:
+          - listitem [ref=f17e8]:
+            - link "Profil" [ref=f17e9] [cursor=pointer]:
+              - /url: "#profile"
+          - listitem [ref=f17e10]:
+            - link "Projets" [ref=f17e11] [cursor=pointer]:
+              - /url: "#projects"
+          - listitem [ref=f17e12]:
+            - link "Parcours" [ref=f17e13] [cursor=pointer]:
+              - /url: "#journey"
+          - listitem [ref=f17e14]:
+            - link "Competences" [ref=f17e15] [cursor=pointer]:
+              - /url: "#skills"
+          - listitem [ref=f17e16]:
+            - link "CV" [ref=f17e17] [cursor=pointer]:
+              - /url: "#cv"
+          - listitem [ref=f17e18]:
+            - link "Contact" [ref=f17e19] [cursor=pointer]:
+              - /url: "#contact"
+      - link "English" [ref=f17e20] [cursor=pointer]:
+        - /url: /portfolio/en/
+  - main [ref=f17e21]:
+    - region [ref=f17e22]:
+      - paragraph [ref=f17e23]: Portfolio full-stack
+      - heading "Des produits numeriques construits avec clarte." [level=1] [ref=f17e24]
+      - paragraph [ref=f17e25]: Je transforme des besoins complexes en experiences web accessibles, maintenables et utiles.
+      - generic [ref=f17e26]:
+        - link "Voir les projets" [ref=f17e27] [cursor=pointer]:
+          - /url: "#projects"
+        - link "Me contacter" [ref=f17e28] [cursor=pointer]:
+          - /url: "#contact"
+    - region [ref=f17e29]:
+      - generic [ref=f17e30]:
+        - heading "Projets selectionnes" [level=2] [ref=f17e31]
+        - link "Voir les projets" [ref=f17e32] [cursor=pointer]:
+          - /url: /portfolio/fr/projects/
+      - generic [ref=f17e33]:
+        - article [ref=f17e34]:
+          - heading "[DEMO] Atlas" [level=3] [ref=f17e35]
+          - paragraph [ref=f17e36]: "[DEMO] Etude de cas fictive a remplacer par un projet reel."
+          - list "Technologies" [ref=f17e37]:
+            - listitem [ref=f17e38]: TypeScript
+            - listitem [ref=f17e39]: Astro
+          - link "Lire l etude de cas" [ref=f17e40] [cursor=pointer]:
+            - /url: /portfolio/fr/projects/atlas/
+        - article [ref=f17e41]:
+          - heading "[DEMO] Signal" [level=3] [ref=f17e42]
+          - paragraph [ref=f17e43]: "[DEMO] Etude de cas fictive a remplacer par un projet reel."
+          - list "Technologies" [ref=f17e44]:
+            - listitem [ref=f17e45]: TypeScript
+            - listitem [ref=f17e46]: API
+          - link "Lire l etude de cas" [ref=f17e47] [cursor=pointer]:
+            - /url: /portfolio/fr/projects/signal/
+        - article [ref=f17e48]:
+          - heading "[DEMO] Canvas" [level=3] [ref=f17e49]
+          - paragraph [ref=f17e50]: "[DEMO] Etude de cas fictive a remplacer par un projet reel."
+          - list "Technologies" [ref=f17e51]:
+            - listitem [ref=f17e52]: TypeScript
+            - listitem [ref=f17e53]: CSS
+          - link "Lire l etude de cas" [ref=f17e54] [cursor=pointer]:
+            - /url: /portfolio/fr/projects/canvas/
+        - article [ref=f17e55]:
+          - heading "[DEMO] Horizon" [level=3] [ref=f17e56]
+          - paragraph [ref=f17e57]: "[DEMO] Etude de cas fictive a remplacer par un projet reel."
+          - list "Technologies" [ref=f17e58]:
+            - listitem [ref=f17e59]: TypeScript
+            - listitem [ref=f17e60]: Testing
+          - link "Lire l etude de cas" [ref=f17e61] [cursor=pointer]:
+            - /url: /portfolio/fr/projects/horizon/
+    - region [ref=f17e62]:
+      - generic [ref=f17e63]:
+        - heading "Parcours" [level=2] [ref=f17e64]
+        - link "Parcours" [ref=f17e65] [cursor=pointer]:
+          - /url: /portfolio/fr/journey/
+      - list [ref=f17e66]:
+        - listitem [ref=f17e67]:
+          - paragraph [ref=f17e68]:
+            - time [ref=f17e69]: mars 2025
+            - text: "- Aujourd’hui"
+          - heading "[DEMO] Prochaine etape" [level=2] [ref=f17e70]
+          - paragraph [ref=f17e71]: "[DEMO] Etape professionnelle fictive a remplacer."
+        - listitem [ref=f17e72]:
+          - paragraph [ref=f17e73]:
+            - time [ref=f17e74]: juil. 2024
+            - text: "-"
+            - time [ref=f17e75]: févr. 2025
+          - heading "[DEMO] Livraison produit" [level=2] [ref=f17e76]
+          - paragraph [ref=f17e77]: "[DEMO] Experience fictive a remplacer."
+        - listitem [ref=f17e78]:
+          - paragraph [ref=f17e79]:
+            - time [ref=f17e80]: janv. 2024
+            - text: "-"
+            - time [ref=f17e81]: juin 2024
+          - heading "[DEMO] Fondation technique" [level=2] [ref=f17e82]
+          - paragraph [ref=f17e83]: "[DEMO] Etape de formation fictive a remplacer."
+    - region [ref=f17e84]:
+      - heading "Competences" [level=2] [ref=f17e86]
+      - generic [ref=f17e87]:
+        - region [ref=f17e88]:
+          - heading "Interfaces" [level=3] [ref=f17e89]
+          - list [ref=f17e90]:
+            - listitem [ref=f17e91]: Astro
+            - listitem [ref=f17e92]: TypeScript
+            - listitem [ref=f17e93]: CSS
+        - region [ref=f17e94]:
+          - heading "Services" [level=3] [ref=f17e95]
+          - list [ref=f17e96]:
+            - listitem [ref=f17e97]: API
+        - region [ref=f17e98]:
+          - heading "Qualite" [level=3] [ref=f17e99]
+          - list [ref=f17e100]:
+            - listitem [ref=f17e101]: Testing
+    - region [ref=f17e102]:
+      - generic [ref=f17e103]:
+        - heading "CV" [level=2] [ref=f17e104]
+        - paragraph [ref=f17e105]: Une synthese du parcours et des realisations.
+      - generic [ref=f17e106]:
+        - link "Telecharger le CV en PDF" [ref=f17e107] [cursor=pointer]:
+          - /url: /portfolio/documents/cv.pdf
+        - link "Consulter la page CV" [ref=f17e108] [cursor=pointer]:
+          - /url: /portfolio/fr/cv/
+    - region [ref=f17e109]:
+      - heading "Echangeons directement." [level=2] [ref=f17e110]
+      - list [ref=f17e111]:
+        - listitem [ref=f17e112]:
+          - link "Email" [ref=f17e113] [cursor=pointer]:
+            - /url: mailto:[replace-with-contact-email@example.com]
+        - listitem [ref=f17e114]:
+          - link "LinkedIn" [ref=f17e115] [cursor=pointer]:
+            - /url: "[replace-with-linkedin-url]"
+        - listitem [ref=f17e116]:
+          - link "GitHub" [ref=f17e117] [cursor=pointer]:
+            - /url: "[replace-with-github-url]"
+  - contentinfo [ref=f17e118]:
+    - generic [ref=f17e119]: Portfolio de demonstration
+    - generic [ref=f17e120]: Statique et accessible

@@ -1,0 +1,102 @@
+- generic [active] [ref=f12e1]:
+  - link "Aller au contenu principal" [ref=f12e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=f12e3]:
+    - generic [ref=f12e4]:
+      - link "Portfolio demo" [ref=f12e5] [cursor=pointer]:
+        - /url: /fr/
+      - button "Ouvrir le menu" [ref=f12e6]
+      - link "English" [ref=f12e7] [cursor=pointer]:
+        - /url: /en/
+  - main [ref=f12e8]:
+    - region [ref=f12e9]:
+      - paragraph [ref=f12e10]: Portfolio full-stack
+      - heading "Des produits numeriques construits avec clarte." [level=1] [ref=f12e11]
+      - paragraph [ref=f12e12]: Je transforme des besoins complexes en experiences web accessibles, maintenables et utiles.
+      - generic [ref=f12e13]:
+        - link "Voir les projets" [ref=f12e14] [cursor=pointer]:
+          - /url: "#projects"
+        - link "Me contacter" [ref=f12e15] [cursor=pointer]:
+          - /url: "#contact"
+    - region [ref=f12e16]:
+      - generic [ref=f12e17]:
+        - heading "Projets selectionnes" [level=2] [ref=f12e18]
+        - link "Voir les projets" [ref=f12e19] [cursor=pointer]:
+          - /url: /fr/projects/
+      - generic [ref=f12e20]:
+        - article [ref=f12e21]:
+          - heading "[DEMO] Atlas" [level=3] [ref=f12e22]
+          - paragraph [ref=f12e23]: "[DEMO] Etude de cas fictive a remplacer par un projet reel."
+          - list "Technologies" [ref=f12e24]:
+            - listitem [ref=f12e25]: TypeScript
+            - listitem [ref=f12e26]: Astro
+          - link "Lire l etude de cas" [ref=f12e27] [cursor=pointer]:
+            - /url: /fr/projects/atlas/
+        - article [ref=f12e28]:
+          - heading "[DEMO] Signal" [level=3] [ref=f12e29]
+          - paragraph [ref=f12e30]: "[DEMO] Etude de cas fictive a remplacer par un projet reel."
+          - list "Technologies" [ref=f12e31]:
+            - listitem [ref=f12e32]: TypeScript
+            - listitem [ref=f12e33]: API
+          - link "Lire l etude de cas" [ref=f12e34] [cursor=pointer]:
+            - /url: /fr/projects/signal/
+    - region [ref=f12e35]:
+      - generic [ref=f12e36]:
+        - heading "Parcours" [level=2] [ref=f12e37]
+        - link "Parcours" [ref=f12e38] [cursor=pointer]:
+          - /url: /fr/journey/
+      - list [ref=f12e39]:
+        - listitem [ref=f12e40]:
+          - paragraph [ref=f12e41]:
+            - time [ref=f12e42]: mars 2025
+            - text: "- Aujourd’hui"
+          - heading "[DEMO] Prochaine etape" [level=2] [ref=f12e43]
+          - paragraph [ref=f12e44]: "[DEMO] Etape professionnelle fictive a remplacer."
+        - listitem [ref=f12e45]:
+          - paragraph [ref=f12e46]:
+            - time [ref=f12e47]: juil. 2024
+            - text: "-"
+            - time [ref=f12e48]: févr. 2025
+          - heading "[DEMO] Livraison produit" [level=2] [ref=f12e49]
+          - paragraph [ref=f12e50]: "[DEMO] Experience fictive a remplacer."
+        - listitem [ref=f12e51]:
+          - paragraph [ref=f12e52]:
+            - time [ref=f12e53]: janv. 2024
+            - text: "-"
+            - time [ref=f12e54]: juin 2024
+          - heading "[DEMO] Fondation technique" [level=2] [ref=f12e55]
+          - paragraph [ref=f12e56]: "[DEMO] Etape de formation fictive a remplacer."
+    - region [ref=f12e57]:
+      - heading "Competences" [level=2] [ref=f12e59]
+      - generic [ref=f12e60]:
+        - region [ref=f12e61]:
+          - heading "Interfaces" [level=3] [ref=f12e62]
+          - list [ref=f12e63]:
+            - listitem [ref=f12e64]: Astro
+            - listitem [ref=f12e65]: TypeScript
+        - region [ref=f12e66]:
+          - heading "Services" [level=3] [ref=f12e67]
+          - list [ref=f12e68]:
+            - listitem [ref=f12e69]: API
+    - region [ref=f12e70]:
+      - generic [ref=f12e71]:
+        - heading "CV" [level=2] [ref=f12e72]
+        - paragraph [ref=f12e73]: Une synthese du parcours et des realisations.
+      - generic [ref=f12e74]:
+        - link "Telecharger le CV en PDF" [ref=f12e75] [cursor=pointer]:
+          - /url: /documents/cv.pdf
+        - link "Consulter la page CV" [ref=f12e76] [cursor=pointer]:
+          - /url: /fr/cv/
+    - region [ref=f12e77]:
+      - heading "Echangeons directement." [level=2] [ref=f12e78]
+      - list [ref=f12e79]:
+        - listitem [ref=f12e80]:
+          - link "Email" [ref=f12e81] [cursor=pointer]:
+            - /url: mailto:[replace-with-contact-email@example.com]
+        - listitem [ref=f12e82]:
+          - link "LinkedIn" [ref=f12e83] [cursor=pointer]:
+            - /url: "[replace-with-linkedin-url]"
+        - listitem [ref=f12e84]:
+          - link "GitHub" [ref=f12e85] [cursor=pointer]:
+            - /url: "[replace-with-github-url]"
+  - contentinfo [ref=f12e86]: Portfolio de demonstrationStatique et accessible
