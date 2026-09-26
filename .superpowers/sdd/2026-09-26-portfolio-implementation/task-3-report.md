@@ -43,3 +43,36 @@ npm run build
 
 - Astro client-side script handling and typed layout component props were verified against the Astro documentation through Context7.
 - The eventual Task 4 localized pages can directly replace the current demonstration routes while retaining the shared layout contract.
+
+## Follow-up Fix: Localized Shell and Responsive Navigation
+
+### Findings Addressed
+
+- French shell controls are now localized: `Ouvrir le menu`, `Fermer le menu`, and the `Navigation principale` landmark label.
+- The French footer now renders `Statique et accessible` rather than the English accessibility message.
+- The mobile-navigation script now listens for media-query changes. Entering a desktop viewport clears its `hidden` state, so primary navigation cannot remain unavailable after a mobile-to-desktop resize.
+- Removed the provisional canonical link. Production canonical URLs are intentionally deferred to Task 6, which will configure Astro `site` and `base` once the GitHub identity is known.
+
+### Regression Tests and Evidence
+
+Added two browser regressions in `tests/e2e/navigation.spec.ts` before the implementation change:
+
+1. `/fr/` verifies the localized open/close button labels, French navigation landmark label, and French footer text.
+2. A page loaded at mobile width then resized to desktop verifies that primary navigation becomes visible.
+
+The first targeted run failed as expected: the French menu label remained English and the navigation stayed hidden after resize. After the fix, the following commands completed successfully on 2026-09-26:
+
+```text
+npm run check
+Result (23 files): 0 errors, 0 warnings, 0 hints
+
+npm run test
+Test Files  3 passed (3)
+Tests  11 passed (11)
+
+npm run test:e2e
+7 passed
+
+npm run build
+3 page(s) built
+```

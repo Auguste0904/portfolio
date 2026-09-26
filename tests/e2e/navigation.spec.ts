@@ -45,4 +45,26 @@ test.describe('site navigation', () => {
     await expect(menuButton).toHaveAttribute('aria-expanded', 'false');
     await expect(menuButton).toBeFocused();
   });
+
+  test('localizes the French shell controls and footer', async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 667 });
+    await page.goto('/fr/');
+
+    const menuButton = page.getByRole('button', { name: 'Ouvrir le menu' });
+    await expect(menuButton).toBeVisible();
+    await menuButton.click();
+    await expect(page.getByRole('button', { name: 'Fermer le menu' })).toHaveAttribute('aria-expanded', 'true');
+    await expect(page.getByRole('navigation', { name: 'Navigation principale' })).toBeVisible();
+    await expect(page.locator('footer')).toContainText('Statique et accessible');
+  });
+
+  test('reveals navigation after resizing from mobile to desktop', async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 667 });
+    await page.goto('/');
+
+    await expect(page.getByRole('navigation', { name: 'Primary navigation' })).toBeHidden();
+    await page.setViewportSize({ width: 1024, height: 768 });
+
+    await expect(page.getByRole('navigation', { name: 'Primary navigation' })).toBeVisible();
+  });
 });

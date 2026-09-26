@@ -6,10 +6,12 @@ interface Props {
 }
 
 const { locale } = Astro.props;
-const message = locale === 'fr' ? 'Portfolio de demonstration' : 'Portfolio demonstration';
+const copy = locale === 'fr'
+  ? { message: 'Portfolio de demonstration', accessibility: 'Statique et accessible' }
+  : { message: 'Portfolio demonstration', accessibility: 'Static and accessible' };
 ---
 
 <footer class="site-footer">
-  <span>{message}</span>
-  <span>Static and accessible</span>
+  <span>{copy.message}</span>
+  <span>{copy.accessibility}</span>
 </footer>
