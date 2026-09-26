@@ -5,7 +5,8 @@ import { configDefaults } from 'vitest/config';
 export default getViteConfig({
   test: {
     environment: 'node',
-    exclude: [...configDefaults.exclude, 'tests/e2e/**'],
+    exclude: [...configDefaults.exclude, '.worktrees/**', 'tests/e2e/**'],
+    include: ['src/**/*.test.ts', 'tests/**/*.test.ts'],
     setupFiles: ['./tests/setup.ts'],
   },
 });

@@ -1,4 +1,38 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
+
+const projects = [
+  ['fr', 'teams-meeting-minutes', 'Application Teams de comptes rendus', true],
+  ['fr', 'gargantua-onega', 'Gargantua / Onega', true],
+  ['fr', 'livecontrol', 'LiveControl', true],
+  ['fr', 'mythesis', 'MyThesis', false],
+  ['fr', 'opencell-operations', 'Operations OPENCELL', false],
+  ['fr', 'cybille-commerce', 'Plateforme e-commerce Cybille', false],
+  ['en', 'gargantua-onega', 'Gargantua / Onega', true],
+  ['en', 'livecontrol', 'LiveControl', true],
+  ['en', 'teams-meeting-minutes', 'Teams meeting-minutes application', true],
+  ['en', 'cybille-commerce', 'Cybille e-commerce platform', false],
+  ['en', 'mythesis', 'MyThesis', false],
+  ['en', 'opencell-operations', 'OPENCELL operations', false],
+].map(([locale, slug, title, featured]) => ({
+  id: `${locale}/${slug}`,
+  collection: 'projects',
+  data: {
+    title,
+    slug,
+    summary: 'Representative CV project.',
+    context: 'Professional project.',
+    role: 'Full-stack Developer.',
+    contributions: ['Contributed to application development.'],
+    technologies: ['ASP.NET Core'],
+    primaryTechnologies: ['dotnet'],
+    outcomes: ['Technical details are not published.'],
+    featured,
+  },
+}));
+
+vi.mock('astro:content', () => ({
+  getCollection: async () => projects,
+}));
 
 import { getProject, getProjects, getProjectStaticPaths } from './projects';
 
