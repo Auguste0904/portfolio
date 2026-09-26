@@ -1,0 +1,23 @@
+{
+  "name": "portfolio",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "test": "vitest run",
+    "test:e2e": "playwright test --pass-with-no-tests"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "@astrojs/check": "latest",
+    "@playwright/test": "latest",
+    "astro": "latest",
+    "playwright": "latest",
+    "typescript": "latest",
+    "vitest": "latest"
+  }
+}
