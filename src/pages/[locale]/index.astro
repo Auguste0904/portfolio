@@ -1,6 +1,11 @@
 ---
+import { getCollection } from 'astro:content';
+import ContactLinks from '../../components/ContactLinks.astro';
+import Hero from '../../components/Hero.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import Timeline from '../../components/Timeline.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { isLocale, type Locale } from '../../lib/i18n';
+import { getLocalizedPath, isLocale, type Locale } from '../../lib/i18n';
 
 export function getStaticPaths() {
   return ['fr', 'en'].map((locale) => ({ params: { locale } }));
@@ -12,25 +17,60 @@ if (!locale || !isLocale(locale)) {
   return new Response(null, { status: 404 });
 }
 
-const copy: Record<Locale, { heading: string; description: string; body: string }> = {
+const copy: Record<Locale, { description: string; eyebrow: string; heading: string; intro: string; projects: string; journey: string; contact: string; allProjects: string }> = {
   fr: {
-    heading: 'Structure editoriale',
-    description: 'Une demonstration de portfolio accessible.',
-    body: 'Contenu de demonstration pour un portfolio bilingue. Les pages localisees definitives remplaceront cette demonstration.',
+    description: 'Portfolio de developpement full-stack.',
+    eyebrow: 'Portfolio full-stack',
+    heading: 'Des produits numeriques construits avec clarte.',
+    intro: 'Je transforme des besoins complexes en experiences web accessibles, maintenables et utiles.',
+    projects: 'Projets selectionnes',
+    journey: 'Parcours',
+    contact: 'Echangeons directement.',
+    allProjects: 'Voir les projets',
   },
   en: {
-    heading: 'Editorial shell',
-    description: 'An accessible portfolio demonstration.',
-    body: 'Placeholder content for a bilingual portfolio. The final localized pages will replace this demonstration.',
+    description: 'Full-stack development portfolio.',
+    eyebrow: 'Full-stack portfolio',
+    heading: 'Digital products built with clarity.',
+    intro: 'I turn complex needs into accessible, maintainable and useful web experiences.',
+    projects: 'Selected projects',
+    journey: 'Journey',
+    contact: 'Let us connect directly.',
+    allProjects: 'View projects',
   },
 };
 
 const content = copy[locale];
+const [projects, experience] = await Promise.all([getCollection('projects'), getCollection('experience')]);
+const featuredProjects = projects.filter((project) => project.id.startsWith(`${locale}/`) && project.data.featured);
+const timeline = experience
+  .filter((entry) => entry.id.startsWith(`${locale}/`))
+  .sort((first, second) => second.data.startDate.getTime() - first.data.startDate.getTime());
 ---
 
 <BaseLayout locale={locale} title="Portfolio" description={content.description}>
-  <section class="demo-intro" aria-labelledby="page-title">
-    <h1 id="page-title">{content.heading}</h1>
-    <p>{content.body}</p>
+  <Hero eyebrow={content.eyebrow} heading={content.heading} intro={content.intro} />
+
+  <section class="page-section" aria-labelledby="projects-title">
+    <div class="section-heading">
+      <h2 id="projects-title">{content.projects}</h2>
+      <a href={getLocalizedPath(locale, 'projects')}>{content.allProjects}</a>
+    </div>
+    <div class="project-grid">
+      {featuredProjects.map((project) => <ProjectCard project={project} />)}
+    </div>
+  </section>
+
+  <section class="page-section" aria-labelledby="journey-title">
+    <div class="section-heading">
+      <h2 id="journey-title">{content.journey}</h2>
+      <a href={getLocalizedPath(locale, 'journey')}>{content.journey}</a>
+    </div>
+    <Timeline entries={timeline.slice(0, 3)} />
+  </section>
+
+  <section class="page-section contact-callout" aria-labelledby="contact-title">
+    <h2 id="contact-title">{content.contact}</h2>
+    <ContactLinks />
   </section>
 </BaseLayout>

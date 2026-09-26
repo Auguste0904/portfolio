@@ -29,6 +29,7 @@ export function getAlternateLocale(locale: Locale): Locale {
 
 export function getLocalizedPath(locale: Locale, path = ''): string {
   const normalizedPath = path.replace(/^\/+|\/+$/g, '');
+  const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
-  return normalizedPath ? `/${locale}/${normalizedPath}/` : `/${locale}/`;
+  return normalizedPath ? `${base}/${locale}/${normalizedPath}/` : `${base}/${locale}/`;
 }

@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test';
 
 test.describe('site navigation', () => {
   test('moves focus to main content through the skip link', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/en/');
 
     await page.keyboard.press('Tab');
 
@@ -13,9 +13,9 @@ test.describe('site navigation', () => {
   });
 
   test('provides keyboard-visible primary navigation', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/en/');
 
-    const projectsLink = page.getByRole('link', { name: 'Projects' });
+    const projectsLink = page.getByRole('link', { name: 'Projects', exact: true });
     await projectsLink.focus();
 
     await expect(projectsLink).toBeFocused();
@@ -23,7 +23,7 @@ test.describe('site navigation', () => {
   });
 
   test('links to the equivalent page in the other language', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/en/');
 
     const languageLink = page.getByRole('link', { name: 'Français' });
     await expect(languageLink).toHaveAttribute('href', '/fr/');
@@ -31,7 +31,7 @@ test.describe('site navigation', () => {
 
   test('opens and closes the mobile navigation with keyboard controls', async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 667 });
-    await page.goto('/');
+    await page.goto('/en/');
 
     const menuButton = page.getByRole('button', { name: /open menu/i });
     await expect(menuButton).toBeVisible();
@@ -60,7 +60,7 @@ test.describe('site navigation', () => {
 
   test('reveals navigation after resizing from mobile to desktop', async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 667 });
-    await page.goto('/');
+    await page.goto('/en/');
 
     await expect(page.getByRole('navigation', { name: 'Primary navigation' })).toBeHidden();
     await page.setViewportSize({ width: 1024, height: 768 });
