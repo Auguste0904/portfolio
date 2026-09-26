@@ -1,0 +1,14 @@
+---
+import { getTechnology, getTechnologyLogoPath } from '../lib/technologies';
+import type { Locale } from '../lib/i18n';
+
+interface Props { technology: string; locale: Locale; }
+const { technology, locale } = Astro.props;
+const entry = getTechnology(technology);
+const logo = entry ? getTechnologyLogoPath(entry.id, import.meta.env.BASE_URL) : undefined;
+---
+
+<span class="technology-badge">
+  {logo && <img src={logo} alt="" aria-hidden="true" width="24" height="24" />}
+  <span>{entry ? entry.label[locale] : technology}</span>
+</span>

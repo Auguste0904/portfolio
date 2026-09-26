@@ -1,6 +1,6 @@
 ---
-title: '[DEMO] CV'
-description: '[DEMO] Fictional summary to replace.'
+title: 'CV'
+description: 'Professional journey of Auguste ALEXANDRE.'
 ---
 
-This is an explicit placeholder. Add only a CV and PDF link supplied by the owner.
+Journey: EPITECH Paris, OPENCELL, Cybille and Orange Business. The Journey page presents the CV-confirmed milestones.

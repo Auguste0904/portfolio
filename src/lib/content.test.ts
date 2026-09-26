@@ -11,6 +11,7 @@ const validProject = {
   contributions: ['Demo contribution only.'],
   technologies: ['TypeScript'],
   outcomes: ['Demo outcome only.'],
+  primaryTechnologies: ['typescript'],
 };
 
 describe('project content schema', () => {
@@ -27,5 +28,9 @@ describe('project content schema', () => {
 
   it('rejects a project with no technologies', () => {
     expect(projectSchema.safeParse({ ...validProject, technologies: [] }).success).toBe(false);
+  });
+
+  it('rejects a project with no primary technologies', () => {
+    expect(projectSchema.safeParse({ ...validProject, primaryTechnologies: [] }).success).toBe(false);
   });
 });

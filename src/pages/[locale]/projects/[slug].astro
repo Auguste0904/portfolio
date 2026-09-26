@@ -48,7 +48,7 @@ const copy: Record<Locale, { contextRole: string; outcomes: string; problem: str
       <h2>{copy[locale].solution}</h2>
       <ul>{project.data.contributions.map((contribution) => <li>{contribution}</li>)}</ul>
     </section>
-    <div data-project-section="technology"><ProjectMeta label={copy[locale].technology} values={project.data.technologies} /></div>
+    <div data-project-section="technology"><ProjectMeta label={copy[locale].technology} values={project.data.technologies} locale={locale} /></div>
     <section data-project-section="outcomes">
       <h2>{copy[locale].outcomes}</h2>
       <ul>{project.data.outcomes.map((outcome) => <li>{outcome}</li>)}</ul>

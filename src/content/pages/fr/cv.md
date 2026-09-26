@@ -1,6 +1,6 @@
 ---
-title: '[DEMO] CV'
-description: '[DEMO] Resume fictif a remplacer.'
+title: 'CV'
+description: 'Parcours professionnel d Auguste ALEXANDRE.'
 ---
 
-Ce texte est un placeholder explicite. Ajoutez uniquement un CV et un lien PDF fournis par le proprietaire.
+Parcours: EPITECH Paris, OPENCELL, Cybille et Orange Business. La page Parcours presente les etapes confirmees du CV.

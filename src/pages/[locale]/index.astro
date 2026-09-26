@@ -1,9 +1,11 @@
 ---
 import { getCollection } from 'astro:content';
 import ContactLinks from '../../components/ContactLinks.astro';
+import AiPractice from '../../components/AiPractice.astro';
 import Hero from '../../components/Hero.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
 import Timeline from '../../components/Timeline.astro';
+import TechnologyGroup from '../../components/TechnologyGroup.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getLocalizedPath, isLocale, type Locale } from '../../lib/i18n';
 
@@ -24,59 +26,50 @@ const copy: Record<Locale, {
   intro: string;
   projects: string;
   journey: string;
-  skills: string;
-  cv: string;
+  presentation: string;
+  ai: string;
   contact: string;
   allProjects: string;
   projectsCta: string;
   contactCta: string;
-  cvDescription: string;
-  viewCv: string;
-  pdfNotice: string;
   skillGroups: Array<{ title: string; technologies: string[] }>;
 }> = {
   fr: {
     description: 'Portfolio de développement full-stack.',
     eyebrow: 'Portfolio full-stack',
-    heading: 'Des produits numériques construits avec clarté.',
-    intro: 'Je transforme des besoins complexes en expériences web accessibles, maintenables et utiles.',
+    heading: 'Auguste ALEXANDRE',
+    intro: 'Developpeur full-stack diplome d EPITECH, avec une experience professionnelle depuis 2020. Aujourd hui chez Orange Business, je contribue au developpement d applications full-stack.',
     projects: 'Projets sélectionnés',
     journey: 'Parcours',
-    skills: 'Compétences',
-    cv: 'CV',
+    presentation: 'Presentation',
+    ai: 'IA en pratique',
     contact: 'Échangeons directement.',
     allProjects: 'Voir les projets',
     projectsCta: 'Voir les projets',
     contactCta: 'Me contacter',
-    cvDescription: 'Une synthèse du parcours et des réalisations.',
-    viewCv: 'Consulter la page CV',
-    pdfNotice: 'La version PDF sera disponible prochainement.',
     skillGroups: [
-      { title: 'Interfaces', technologies: ['Astro', 'TypeScript', 'CSS'] },
-      { title: 'Services', technologies: ['API'] },
-      { title: 'Qualite', technologies: ['Testing'] },
+      { title: 'Front-end', technologies: ['angular', 'react', 'typescript', 'html', 'css'] },
+      { title: 'Back-end', technologies: ['csharp', 'dotnet', 'python', 'sql', 'c', 'cpp'] },
+      { title: 'DevOps', technologies: ['docker', 'azure', 'terraform', 'kubernetes'] },
     ],
   },
   en: {
     description: 'Full-stack development portfolio.',
     eyebrow: 'Full-stack portfolio',
-    heading: 'Digital products built with clarity.',
-    intro: 'I turn complex needs into accessible, maintainable and useful web experiences.',
+    heading: 'Auguste ALEXANDRE',
+    intro: 'Full-stack Developer and EPITECH graduate, with professional experience since 2020. At Orange Business, I contribute to full-stack application development.',
     projects: 'Selected projects',
     journey: 'Journey',
-    skills: 'Skills',
-    cv: 'CV',
+    presentation: 'Presentation',
+    ai: 'AI in practice',
     contact: 'Let us connect directly.',
     allProjects: 'View projects',
     projectsCta: 'View projects',
     contactCta: 'Get in touch',
-    cvDescription: 'A concise summary of experience and selected work.',
-    viewCv: 'View CV page',
-    pdfNotice: 'A PDF version will be available soon.',
     skillGroups: [
-      { title: 'Interfaces', technologies: ['Astro', 'TypeScript', 'CSS'] },
-      { title: 'Services', technologies: ['API'] },
-      { title: 'Quality', technologies: ['Testing'] },
+      { title: 'Front-end', technologies: ['angular', 'react', 'typescript', 'html', 'css'] },
+      { title: 'Back-end', technologies: ['csharp', 'dotnet', 'python', 'sql', 'c', 'cpp'] },
+      { title: 'DevOps', technologies: ['docker', 'azure', 'terraform', 'kubernetes'] },
     ],
   },
 };
@@ -84,18 +77,18 @@ const copy: Record<Locale, {
 const content = copy[locale];
 const [projects, experience] = await Promise.all([getCollection('projects'), getCollection('experience')]);
 const localizedProjects = projects.filter((project) => project.id.startsWith(`${locale}/`));
-const featuredProjects = [...localizedProjects.filter((project) => project.data.featured), ...localizedProjects.filter((project) => !project.data.featured)].slice(0, 4);
+const featuredProjects = [...localizedProjects.filter((project) => project.data.featured), ...localizedProjects.filter((project) => !project.data.featured)].slice(0, 6);
 const timeline = experience
   .filter((entry) => entry.id.startsWith(`${locale}/`))
   .sort((first, second) => second.data.startDate.getTime() - first.data.startDate.getTime());
-const projectTechnologies = new Set(localizedProjects.flatMap((project) => project.data.technologies));
-const skillGroups = content.skillGroups
-  .map((group) => ({ ...group, technologies: group.technologies.filter((technology) => projectTechnologies.has(technology)) }))
-  .filter((group) => group.technologies.length > 0);
 ---
 
 <BaseLayout locale={locale} title="Portfolio" description={content.description}>
   <Hero eyebrow={content.eyebrow} heading={content.heading} intro={content.intro} projectsLabel={content.projectsCta} contactLabel={content.contactCta} />
+
+  <section id="presentation" class="page-section" aria-labelledby="presentation-title"><div class="section-heading"><h2 id="presentation-title">{content.presentation}</h2></div><div class="skill-groups">{content.skillGroups.map((group) => <TechnologyGroup {...group} locale={locale} />)}</div></section>
+
+  <section id="ai" class="page-section" aria-labelledby="ai-title"><div class="section-heading"><h2 id="ai-title">{content.ai}</h2></div><AiPractice locale={locale} /></section>
 
   <section id="projects" class="page-section" aria-labelledby="projects-title">
     <div class="section-heading">
@@ -115,30 +108,6 @@ const skillGroups = content.skillGroups
     <Timeline entries={timeline.slice(0, 3)} locale={locale} />
   </section>
 
-  <section id="skills" class="page-section" aria-labelledby="skills-title">
-    <div class="section-heading">
-      <h2 id="skills-title">{content.skills}</h2>
-    </div>
-    <div class="skill-groups">
-      {skillGroups.map((group) => (
-        <section class="skill-group" aria-labelledby={`skill-${group.title.replaceAll(' ', '-').toLowerCase()}`}>
-          <h3 id={`skill-${group.title.replaceAll(' ', '-').toLowerCase()}`}>{group.title}</h3>
-          <ul>{group.technologies.map((technology) => <li>{technology}</li>)}</ul>
-        </section>
-      ))}
-    </div>
-  </section>
-
-  <section id="cv" class="page-section cv-callout" aria-labelledby="cv-title">
-    <div>
-      <h2 id="cv-title">{content.cv}</h2>
-      <p>{content.cvDescription}</p>
-    </div>
-    <div class="cv-callout__links">
-      <a class="button-link" href={getLocalizedPath(locale, 'cv')}>{content.viewCv}</a>
-      <p>{content.pdfNotice}</p>
-    </div>
-  </section>
 
   <section id="contact" class="page-section contact-callout" aria-labelledby="contact-title">
     <h2 id="contact-title">{content.contact}</h2>

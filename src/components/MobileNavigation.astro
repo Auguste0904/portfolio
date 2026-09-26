@@ -10,14 +10,13 @@ const shellLabels = locale === 'fr'
   ? { openMenu: 'Ouvrir le menu', closeMenu: 'Fermer le menu', navigation: 'Navigation principale' }
   : { openMenu: 'Open menu', closeMenu: 'Close menu', navigation: 'Primary navigation' };
 const labels = locale === 'fr'
-  ? { profile: 'Profil', projects: 'Projets', journey: 'Parcours', skills: 'Competences', cv: 'CV', contact: 'Contact' }
-  : { profile: 'Profile', projects: 'Projects', journey: 'Journey', skills: 'Skills', cv: 'CV', contact: 'Contact' };
+  ? { presentation: 'Presentation', ai: 'IA', projects: 'Projets', journey: 'Parcours', contact: 'Contact' }
+  : { presentation: 'Presentation', ai: 'AI', projects: 'Projects', journey: 'Journey', contact: 'Contact' };
 const links = [
-  ['profile', labels.profile],
+  ['presentation', labels.presentation],
+  ['ai', labels.ai],
   ['projects', labels.projects],
   ['journey', labels.journey],
-  ['skills', labels.skills],
-  ['cv', labels.cv],
   ['contact', labels.contact],
 ] as const;
 ---

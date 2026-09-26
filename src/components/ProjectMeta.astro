@@ -2,14 +2,16 @@
 interface Props {
   label: string;
   values: string[];
+  locale: import('../lib/i18n').Locale;
 }
 
-const { label, values } = Astro.props;
+import TechnologyBadge from './TechnologyBadge.astro';
+const { label, values, locale } = Astro.props;
 ---
 
 <section class="project-meta" aria-label={label}>
   <h2>{label}</h2>
   <ul>
-    {values.map((value) => <li>{value}</li>)}
+    {values.map((value) => <li><TechnologyBadge technology={value} locale={locale} /></li>)}
   </ul>
 </section>

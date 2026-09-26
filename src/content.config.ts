@@ -10,6 +10,7 @@ export const projectSchema = z.object({
   role: z.string(),
   contributions: z.array(z.string()),
   technologies: z.array(z.string()).min(1),
+  primaryTechnologies: z.array(z.string()).min(1).max(4),
   outcomes: z.array(z.string()),
   featured: z.boolean().default(false),
   github: z.url().optional(),

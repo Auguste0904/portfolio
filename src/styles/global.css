@@ -76,6 +76,8 @@ a:hover { color: var(--color-accent-dark); }
 .project-card ul, .contact-links { display: flex; flex-wrap: wrap; gap: var(--space-1); list-style: none; margin: 0; padding: 0; }
 
 .project-card li { border: 1px solid var(--color-line); font-size: 0.78rem; padding: 0.25rem 0.45rem; }
+.technology-badge { align-items: center; display: inline-flex; gap: 0.35rem; }
+.technology-badge img { flex: 0 0 auto; }
 
 .project-card > a { color: var(--color-accent-dark); display: inline-block; font-size: 0.85rem; font-weight: 700; margin-top: auto; padding-top: var(--space-3); width: fit-content; }
 
@@ -124,10 +126,12 @@ a:hover { color: var(--color-accent-dark); }
 .contact-links a:hover { border-color: var(--color-accent-dark); color: var(--color-accent-dark); }
 
 .skill-groups { display: grid; gap: var(--space-2); margin-top: var(--space-3); }
-.skill-group { border: 1px solid var(--color-line); padding: var(--space-2); }
-.skill-group h3 { font-size: 1rem; margin: 0 0 var(--space-2); }
-.skill-group ul { display: flex; flex-wrap: wrap; gap: var(--space-1); list-style: none; margin: 0; padding: 0; }
-.skill-group li { background: var(--color-paper-deep); font-size: 0.85rem; padding: 0.35rem 0.5rem; }
+.technology-group, .ai-practice > section { background: var(--color-paper-deep); border: 1px solid var(--color-line); padding: var(--space-2); }
+.technology-group h3, .ai-practice h3 { font-size: 1rem; margin: 0 0 var(--space-2); }
+.technology-group ul, .technology-list { display: flex; flex-wrap: wrap; gap: var(--space-1); list-style: none; margin: 0; padding: 0; }
+.technology-group li { background: var(--color-paper); font-size: 0.85rem; padding: 0.35rem 0.5rem; }
+.ai-practice { display: grid; gap: var(--space-2); margin-top: var(--space-3); }
+.ai-practice p { color: var(--color-ink-soft); line-height: 1.6; }
 .cv-callout { align-items: end; display: grid; gap: var(--space-3); }
 .cv-callout p { color: var(--color-ink-soft); line-height: 1.6; margin: 0; }
 

@@ -1,6 +1,6 @@
 ---
-title: '[DEMO] About'
-description: '[DEMO] Fictional introduction to replace.'
+title: 'About'
+description: 'Introduction to Auguste ALEXANDRE, Full-stack Developer.'
 ---
 
-This is an explicit placeholder. Replace it with an approved personal introduction.
+EPITECH graduate Auguste ALEXANDRE has worked on full-stack applications since 2020. He currently works across development and production at Orange Business.

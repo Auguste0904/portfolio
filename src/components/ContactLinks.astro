@@ -13,6 +13,7 @@ const unavailableMessage = locale === 'fr'
   : 'Contact details will be available once configured.';
 ---
 
+<p class="contact-location">{locale === 'fr' ? 'Localisation : ' : 'Location: '}{site.location}</p>
 {links.length > 0 ? (
   <ul class="contact-links">
     {links.map((link) => <li><a href={link.href}>{link.label}</a></li>)}
