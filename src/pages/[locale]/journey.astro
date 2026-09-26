@@ -1,0 +1,31 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Timeline from '../../components/Timeline.astro';
+import { isLocale } from '../../lib/i18n';
+
+export function getStaticPaths() {
+  return ['fr', 'en'].map((locale) => ({ params: { locale } }));
+}
+
+const locale = Astro.params.locale;
+
+if (!locale || !isLocale(locale)) {
+  return new Response(null, { status: 404 });
+}
+
+const entries = (await getCollection('experience'))
+  .filter((entry) => entry.id.startsWith(`${locale}/`))
+  .sort((first, second) => second.data.startDate.getTime() - first.data.startDate.getTime());
+const copy = locale === 'fr'
+  ? { title: 'Parcours', description: 'Etapes de formation et d experience.', intro: 'Une chronologie des experiences, formations et jalons.' }
+  : { title: 'Journey', description: 'Experience and learning milestones.', intro: 'A timeline of experience, education and milestones.' };
+---
+
+<BaseLayout locale={locale} title={copy.title} description={copy.description} alternatePath="journey">
+  <section class="page-content" aria-labelledby="page-title">
+    <h1 id="page-title">{copy.title}</h1>
+    <p class="page-intro">{copy.intro}</p>
+    <Timeline entries={entries} locale={locale} />
+  </section>
+</BaseLayout>

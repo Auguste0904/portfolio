@@ -1,0 +1,7 @@
+---
+import TechnologyBadge from './TechnologyBadge.astro';
+import type { Locale } from '../lib/i18n';
+interface Props { title: string; technologies: string[]; locale: Locale; }
+const { title, technologies, locale } = Astro.props;
+---
+<section class="technology-group" aria-label={title}><h3>{title}</h3><ul>{technologies.map((technology) => <li><TechnologyBadge technology={technology} locale={locale} /></li>)}</ul></section>

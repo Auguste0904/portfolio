@@ -1,0 +1,23 @@
+---
+import { getConfiguredContactLinks, site } from '../lib/site';
+import type { Locale } from '../lib/i18n';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const links = getConfiguredContactLinks(site);
+const unavailableMessage = locale === 'fr'
+  ? 'Les coordonnees seront disponibles une fois configurees.'
+  : 'Contact details will be available once configured.';
+---
+
+<p class="contact-location">{locale === 'fr' ? 'Localisation : ' : 'Location: '}{site.location}</p>
+{links.length > 0 ? (
+  <ul class="contact-links">
+    {links.map((link) => <li><a href={link.href}>{link.label}</a></li>)}
+  </ul>
+) : (
+  <p class="contact-links-unavailable">{unavailableMessage}</p>
+)}

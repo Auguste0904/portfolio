@@ -1,0 +1,17 @@
+---
+import type { Locale } from '../lib/i18n';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const copy = locale === 'fr'
+  ? { message: 'Auguste ALEXANDRE', accessibility: 'Statique et accessible' }
+  : { message: 'Auguste ALEXANDRE', accessibility: 'Static and accessible' };
+---
+
+<footer class="site-footer">
+  <span>{copy.message}</span>
+  <span>{copy.accessibility}</span>
+</footer>

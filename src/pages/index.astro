@@ -1,0 +1,18 @@
+---
+const frenchHomepage = `${import.meta.env.BASE_URL}fr/`;
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="robots" content="noindex" />
+    <meta http-equiv="refresh" content={`0; url=${frenchHomepage}`} />
+    <link rel="canonical" href={frenchHomepage} />
+    <title>Redirection vers le portfolio</title>
+  </head>
+  <body>
+    <p><a href={frenchHomepage}>Acceder au portfolio en francais</a></p>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+---
+import { getAlternateLocale, getLocalizedPath, type Locale } from '../lib/i18n';
+
+interface Props {
+  locale: Locale;
+  alternatePath?: string;
+}
+
+const { locale, alternatePath = '' } = Astro.props;
+const alternateLocale = getAlternateLocale(locale);
+const label = alternateLocale === 'fr' ? 'Français' : 'English';
+---
+
+<a class="language-switcher" href={getLocalizedPath(alternateLocale, alternatePath)} hreflang={alternateLocale} lang={alternateLocale}>
+  {label}
+</a>
