@@ -18,5 +18,5 @@ const detailPath = getLocalizedPath(locale, `projects/${project.data.slug}`);
   <ul aria-label="Technologies">
     {project.data.primaryTechnologies.map((technology) => <li><TechnologyBadge technology={technology} locale={locale} /></li>)}
   </ul>
-  <a href={detailPath}>{locale === 'fr' ? 'Lire l etude de cas' : 'Read case study'}</a>
+  <a href={detailPath}>{locale === 'fr' ? 'Voir plus de détails' : 'See more details'}</a>
 </article>

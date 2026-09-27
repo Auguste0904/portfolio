@@ -78,7 +78,7 @@ a:hover { color: var(--color-accent-dark); }
 
 .project-card li { border: 1px solid var(--color-line); border-radius: var(--radius-sm); font-size: 0.78rem; padding: 0.25rem 0.45rem; }
 .technology-badge { align-items: center; display: inline-flex; gap: 0.35rem; }
-.technology-badge img { flex: 0 0 auto; }
+.technology-badge__logo { flex: 0 0 auto; height: 1.5rem; object-fit: contain; object-position: center; width: 1.5rem; }
 
 .project-card > a { color: var(--color-accent-dark); display: inline-block; font-size: 0.85rem; font-weight: 700; margin-top: auto; padding-top: var(--space-3); width: fit-content; }
 
@@ -133,6 +133,8 @@ a:hover { color: var(--color-accent-dark); }
 .contact-links a:hover { border-color: var(--color-accent-dark); color: var(--color-accent-dark); }
 
 .skill-groups { display: grid; gap: var(--space-2); margin-top: var(--space-3); }
+.presentation-section__text { color: var(--color-ink-soft); font-size: clamp(1.05rem, 2vw, 1.25rem); line-height: 1.7; margin: var(--space-3) 0 0; max-width: 48rem; }
+.skill-groups--ai { margin-top: var(--space-2); }
 .technology-group, .ai-practice > section { background: var(--color-paper-deep); border: 1px solid var(--color-line); border-radius: var(--radius-md); padding: var(--space-2); }
 .technology-group h3, .ai-practice h3 { font-size: 1rem; margin: 0 0 var(--space-2); }
 .technology-group ul, .technology-list { display: flex; flex-wrap: wrap; gap: var(--space-1); list-style: none; margin: 0; padding: 0; }

@@ -1,7 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
 import ContactLinks from '../../components/ContactLinks.astro';
-import AiPractice from '../../components/AiPractice.astro';
 import Hero from '../../components/Hero.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
 import Timeline from '../../components/Timeline.astro';
@@ -27,7 +26,8 @@ const copy: Record<Locale, {
   projects: string;
   journey: string;
   presentation: string;
-  ai: string;
+  skills: string;
+  presentationText: string;
   contact: string;
   allProjects: string;
   projectsCta: string;
@@ -42,7 +42,8 @@ const copy: Record<Locale, {
     projects: 'Projets sélectionnés',
     journey: 'Parcours',
     presentation: 'Présentation',
-    ai: 'IA en pratique',
+    skills: 'Compétences',
+    presentationText: 'Ingénieur logiciel et développeur full-stack, je conçois des applications web de la conception à la mise en production. Mon expérience chez Orange Business s’appuie sur le développement d’applications, l’automatisation et la qualité du service rendu.',
     contact: 'Contact',
     allProjects: 'Voir les projets',
     projectsCta: 'Voir les projets',
@@ -61,7 +62,8 @@ const copy: Record<Locale, {
     projects: 'Selected projects',
     journey: 'Journey',
     presentation: 'Presentation',
-    ai: 'AI in practice',
+    skills: 'Skills',
+    presentationText: 'Software engineer and full-stack developer, I build web applications from design through production. My experience at Orange Business combines application development, automation, and service quality.',
     contact: 'Let us connect directly.',
     allProjects: 'View projects',
     projectsCta: 'View projects',
@@ -86,9 +88,16 @@ const timeline = experience
 <BaseLayout locale={locale} title="Portfolio" description={content.description}>
   <Hero eyebrow={content.eyebrow} heading={content.heading} intro={content.intro} role={locale === 'fr' ? 'Développeur full-stack' : 'Full-stack Developer'} projectsLabel={content.projectsCta} contactLabel={content.contactCta} />
 
-  <section id="presentation" class="page-section" aria-labelledby="presentation-title"><div class="section-heading"><h2 id="presentation-title">{content.presentation}</h2></div><div class="skill-groups">{content.skillGroups.map((group) => <TechnologyGroup {...group} locale={locale} />)}</div></section>
+  <section id="presentation" class="page-section presentation-section" aria-labelledby="presentation-title">
+    <div class="section-heading"><h2 id="presentation-title">{content.presentation}</h2></div>
+    <p class="presentation-section__text">{content.presentationText}</p>
+  </section>
 
-  <section id="ai" class="page-section" aria-labelledby="ai-title"><div class="section-heading"><h2 id="ai-title">{content.ai}</h2></div><AiPractice locale={locale} /></section>
+  <section id="skills" class="page-section" aria-labelledby="skills-title">
+    <div class="section-heading"><h2 id="skills-title">{content.skills}</h2></div>
+    <div class="skill-groups">{content.skillGroups.map((group) => <TechnologyGroup {...group} locale={locale} />)}</div>
+    <div class="skill-groups skill-groups--ai"><TechnologyGroup title={locale === 'fr' ? 'IA & outils' : 'AI & tools'} technologies={['claude', 'chatgpt', 'qwen', 'opencode', 'context7', 'playwright']} locale={locale} /></div>
+  </section>
 
   <section id="projects" class="page-section" aria-labelledby="projects-title">
     <div class="section-heading">

@@ -41,7 +41,7 @@
           - list "Technologies" [ref=f1e32]:
             - listitem [ref=f1e33]: TypeScript
             - listitem [ref=f1e34]: Astro
-          - link "Lire l etude de cas" [ref=f1e35] [cursor=pointer]:
+          - link "Lire l'etude de cas" [ref=f1e35] [cursor=pointer]:
             - /url: /portfolio/fr/projects/atlas/
         - article [ref=f1e36]:
           - heading "[DEMO] Signal" [level=3] [ref=f1e37]
@@ -49,7 +49,7 @@
           - list "Technologies" [ref=f1e39]:
             - listitem [ref=f1e40]: TypeScript
             - listitem [ref=f1e41]: API
-          - link "Lire l etude de cas" [ref=f1e42] [cursor=pointer]:
+          - link "Lire l'etude de cas" [ref=f1e42] [cursor=pointer]:
             - /url: /portfolio/fr/projects/signal/
     - region [ref=f1e43]:
       - generic [ref=f1e44]:
