@@ -21,8 +21,8 @@ const copy: Record<Locale, { description: string; intro: string; title: string }
 const projects = await getProjects(locale);
 ---
 
-<BaseLayout locale={locale} title={copy[locale].title} description={copy[locale].description} alternatePath="projects">
-  <section class="page-content" aria-labelledby="page-title">
+<BaseLayout locale={locale} title={copy[locale].title} description={copy[locale].description} alternatePath="projects" surface="projects">
+  <section class="page-content page-content--wide" aria-labelledby="page-title">
     <h1 id="page-title">{copy[locale].title}</h1>
     <p class="page-intro">{copy[locale].intro}</p>
     <div class="project-grid project-grid--listing">

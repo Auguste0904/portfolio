@@ -1,0 +1,39 @@
+---
+import TechnologyBadge from './TechnologyBadge.astro';
+import type { Locale } from '../lib/i18n';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const fr = locale === 'fr';
+const groups = [
+  { title: 'Front-end', ids: ['angular', 'react', 'typescript', 'html', 'css'] },
+  { title: 'Back-end', ids: ['csharp', 'dotnet', 'python', 'sql', 'c', 'cpp'] },
+  { title: 'DevOps', ids: ['docker', 'azure', 'terraform', 'kubernetes'] },
+  { title: fr ? 'IA & outils' : 'AI & tools', ids: ['claude', 'chatgpt', 'qwen', 'opencode', 'context7', 'playwright'] },
+];
+---
+
+<section id="skills" class="home-section skills-section" aria-labelledby="skills-title" data-carousel>
+  <div class="section-kicker"><span>03 / 05</span><span>{fr ? 'Compétences' : 'Skills'}</span></div>
+  <div class="section-intro">
+    <div><p class="eyebrow">{fr ? 'La boîte à outils' : 'The toolkit'}</p><h2 id="skills-title">{fr ? 'Des outils pour donner forme aux idées.' : 'Tools to bring ideas to life.'}</h2></div>
+    <p>{fr ? 'Des technologies que j’utilise pour concevoir, développer et déployer des applications.' : 'Technologies I use to design, develop and deploy applications.'}</p>
+  </div>
+  <div class="carousel-controls">
+    <span>{fr ? 'Explorer les technologies' : 'Explore the technologies'}</span>
+    <div>
+      <button type="button" data-carousel-prev aria-label={fr ? 'Technologies précédentes' : 'Previous technologies'} hidden>←</button>
+      <button type="button" data-carousel-next aria-label={fr ? 'Technologies suivantes' : 'Next technologies'} hidden>→</button>
+    </div>
+  </div>
+  <div class="skills-track" data-carousel-track tabindex="0" role="region" aria-label={fr ? 'Technologies et outils, défilement horizontal' : 'Technologies and tools, horizontal scroll'}>
+    {groups.map((group, groupIndex) => (
+      <div class="skills-group" aria-label={group.title}>
+        <span class="skills-group__index">0{groupIndex + 1} / {group.title}</span>
+        {group.ids.map((technology) => <div class="skills-tile"><TechnologyBadge technology={technology} locale={locale} /></div>)}
+      </div>
+    ))}
+  </div>
+</section>
+
+<script>import '../scripts/skills-carousel';</script>

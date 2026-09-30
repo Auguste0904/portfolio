@@ -1,7 +1,7 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
 
-const routes = ['/fr/', '/en/', '/fr/projects/atlas/', '/en/projects/atlas/', '/fr/journey/', '/en/journey/', '/fr/contact/', '/en/contact/'];
+const routes = ['/fr/', '/en/', '/fr/projects/livecontrol/', '/en/projects/livecontrol/', '/fr/journey/', '/en/journey/', '/fr/contact/', '/en/contact/'];
 
 test.describe('accessibility and metadata', () => {
   for (const route of routes) {

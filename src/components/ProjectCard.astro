@@ -2,21 +2,26 @@
 import type { CollectionEntry } from 'astro:content';
 import { getLocalizedPath, type Locale } from '../lib/i18n';
 import TechnologyBadge from './TechnologyBadge.astro';
+import ProjectLogos from './ProjectLogos.astro';
 
 interface Props {
   locale: Locale;
   project: CollectionEntry<'projects'>;
+  index?: number;
 }
 
-const { locale, project } = Astro.props;
+const { locale, project, index } = Astro.props;
 const detailPath = getLocalizedPath(locale, `projects/${project.data.slug}`);
 ---
 
 <article class="project-card">
+  {index && <div class="project-card__art" aria-hidden="true"><span>SELECTED / 0{index}</span>{project.data.logos && <ProjectLogos logos={project.data.logos} decorative />}<span>↗ &nbsp; {project.data.primaryTechnologies.join(' · ').toUpperCase()}</span></div>}
+  <div class="project-card__body">
   <h3>{project.data.title}</h3>
   <p>{project.data.summary}</p>
   <ul aria-label="Technologies">
     {project.data.primaryTechnologies.map((technology) => <li><TechnologyBadge technology={technology} locale={locale} /></li>)}
   </ul>
   <a href={detailPath}>{locale === 'fr' ? 'Voir plus de détails' : 'See more details'}</a>
+  </div>
 </article>

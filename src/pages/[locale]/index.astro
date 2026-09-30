@@ -1,12 +1,12 @@
 ---
 import { getCollection } from 'astro:content';
-import ContactLinks from '../../components/ContactLinks.astro';
+import AboutSection from '../../components/AboutSection.astro';
+import ContactSection from '../../components/ContactSection.astro';
+import FeaturedProjects from '../../components/FeaturedProjects.astro';
 import Hero from '../../components/Hero.astro';
-import ProjectCard from '../../components/ProjectCard.astro';
-import Timeline from '../../components/Timeline.astro';
-import TechnologyGroup from '../../components/TechnologyGroup.astro';
+import SkillsCarousel from '../../components/SkillsCarousel.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getLocalizedPath, isLocale, type Locale } from '../../lib/i18n';
+import { isLocale, type Locale } from '../../lib/i18n';
 
 export function getStaticPaths() {
   return ['fr', 'en'].map((locale) => ({ params: { locale } }));
@@ -23,103 +23,34 @@ const copy: Record<Locale, {
   eyebrow: string;
   heading: string;
   intro: string;
-  projects: string;
-  journey: string;
-  presentation: string;
-  skills: string;
-  presentationText: string;
-  contact: string;
-  allProjects: string;
   projectsCta: string;
-  contactCta: string;
-  skillGroups: Array<{ title: string; technologies: string[] }>;
 }> = {
   fr: {
     description: 'Portfolio de développement full-stack.',
     eyebrow: 'Portfolio full-stack',
     heading: 'Auguste ALEXANDRE',
     intro: 'Développeur full-stack diplômé d’EPITECH, avec une expérience professionnelle depuis 2020. Aujourd’hui chez Orange Business, je contribue au développement d’applications full-stack.',
-    projects: 'Projets sélectionnés',
-    journey: 'Parcours',
-    presentation: 'Présentation',
-    skills: 'Compétences',
-    presentationText: 'Ingénieur logiciel et développeur full-stack, je conçois des applications web de la conception à la mise en production. Mon expérience chez Orange Business s’appuie sur le développement d’applications, l’automatisation et la qualité du service rendu.',
-    contact: 'Contact',
-    allProjects: 'Voir les projets',
     projectsCta: 'Voir les projets',
-    contactCta: 'Me contacter',
-    skillGroups: [
-      { title: 'Front-end', technologies: ['angular', 'react', 'typescript', 'html', 'css'] },
-      { title: 'Back-end', technologies: ['csharp', 'dotnet', 'python', 'sql', 'c', 'cpp'] },
-      { title: 'DevOps', technologies: ['docker', 'azure', 'terraform', 'kubernetes'] },
-    ],
   },
   en: {
     description: 'Full-stack development portfolio.',
     eyebrow: 'Full-stack portfolio',
     heading: 'Auguste ALEXANDRE',
     intro: 'Full-stack Developer and EPITECH graduate, with professional experience since 2020. At Orange Business, I contribute to full-stack application development.',
-    projects: 'Selected projects',
-    journey: 'Journey',
-    presentation: 'Presentation',
-    skills: 'Skills',
-    presentationText: 'Software engineer and full-stack developer, I build web applications from design through production. My experience at Orange Business combines application development, automation, and service quality.',
-    contact: 'Let us connect directly.',
-    allProjects: 'View projects',
     projectsCta: 'View projects',
-    contactCta: 'Get in touch',
-    skillGroups: [
-      { title: 'Front-end', technologies: ['angular', 'react', 'typescript', 'html', 'css'] },
-      { title: 'Back-end', technologies: ['csharp', 'dotnet', 'python', 'sql', 'c', 'cpp'] },
-      { title: 'DevOps', technologies: ['docker', 'azure', 'terraform', 'kubernetes'] },
-    ],
   },
 };
 
 const content = copy[locale];
-const [projects, experience] = await Promise.all([getCollection('projects'), getCollection('experience')]);
-const localizedProjects = projects.filter((project) => project.id.startsWith(`${locale}/`));
-const featuredProjects = [...localizedProjects.filter((project) => project.data.featured), ...localizedProjects.filter((project) => !project.data.featured)].slice(0, 6);
-const timeline = experience
-  .filter((entry) => entry.id.startsWith(`${locale}/`))
-  .sort((first, second) => second.data.startDate.getTime() - first.data.startDate.getTime());
+const projects = await getCollection('projects');
+const featuredSlugs = ['teams-meeting-minutes', 'livecontrol', 'gargantua-onega'];
+const featuredProjects = featuredSlugs.map((slug) => projects.find((project) => project.id === `${locale}/${slug}` && project.data.featured)).filter((project) => project !== undefined);
 ---
 
-<BaseLayout locale={locale} title="Portfolio" description={content.description}>
-  <Hero eyebrow={content.eyebrow} heading={content.heading} intro={content.intro} role={locale === 'fr' ? 'Développeur full-stack' : 'Full-stack Developer'} projectsLabel={content.projectsCta} contactLabel={content.contactCta} />
-
-  <section id="presentation" class="page-section presentation-section" aria-labelledby="presentation-title">
-    <div class="section-heading"><h2 id="presentation-title">{content.presentation}</h2></div>
-    <p class="presentation-section__text">{content.presentationText}</p>
-  </section>
-
-  <section id="skills" class="page-section" aria-labelledby="skills-title">
-    <div class="section-heading"><h2 id="skills-title">{content.skills}</h2></div>
-    <div class="skill-groups">{content.skillGroups.map((group) => <TechnologyGroup {...group} locale={locale} />)}</div>
-    <div class="skill-groups skill-groups--ai"><TechnologyGroup title={locale === 'fr' ? 'IA & outils' : 'AI & tools'} technologies={['claude', 'chatgpt', 'qwen', 'opencode', 'context7', 'playwright']} locale={locale} /></div>
-  </section>
-
-  <section id="projects" class="page-section" aria-labelledby="projects-title">
-    <div class="section-heading">
-      <h2 id="projects-title">{content.projects}</h2>
-      <a href={getLocalizedPath(locale, 'projects')}>{content.allProjects}</a>
-    </div>
-    <div class="project-grid">
-       {featuredProjects.map((project) => <ProjectCard locale={locale} project={project} />)}
-    </div>
-  </section>
-
-  <section id="journey" class="page-section" aria-labelledby="journey-title">
-    <div class="section-heading">
-      <h2 id="journey-title">{content.journey}</h2>
-      <a href={getLocalizedPath(locale, 'journey')}>{content.journey}</a>
-    </div>
-    <Timeline entries={timeline} locale={locale} />
-  </section>
-
-
-  <section id="contact" class="page-section contact-callout" aria-labelledby="contact-title">
-    <h2 id="contact-title">{content.contact}</h2>
-    <ContactLinks locale={locale} />
-  </section>
+<BaseLayout locale={locale} title="Portfolio" description={content.description} surface="home">
+  <Hero locale={locale} eyebrow={content.eyebrow} heading={content.heading} intro={content.intro} role={locale === 'fr' ? 'Développeur full-stack' : 'Full-stack Developer'} projectsLabel={content.projectsCta} />
+  <AboutSection locale={locale} />
+  <SkillsCarousel locale={locale} />
+  <FeaturedProjects locale={locale} projects={featuredProjects} />
+  <ContactSection locale={locale} />
 </BaseLayout>

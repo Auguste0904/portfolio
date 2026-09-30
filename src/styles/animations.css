@@ -1,12 +1,14 @@
 @media (prefers-reduced-motion: no-preference) {
-  .project-card,
+    .project-card,
+    .technology-group,
+    .project-card > a::after,
   .button-link,
   .contact-links a,
   .external-project-links a,
   .site-nav a,
   .language-switcher,
   .menu-toggle {
-    transition: background-color 160ms ease, color 160ms ease, transform 160ms ease, border-color 160ms ease;
+    transition: background-color 200ms ease, color 200ms ease, transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
   }
 }
 

@@ -11,9 +11,10 @@ export interface BaseLayoutProps {
   title: string;
   description: string;
   alternatePath?: string;
+  surface?: 'home' | 'projects';
 }
 
-const { locale, title, description, alternatePath } = Astro.props;
+const { locale, title, description, alternatePath, surface } = Astro.props;
 const skipLabel = locale === 'fr' ? 'Aller au contenu principal' : 'Skip to main content';
 ---
 
@@ -22,12 +23,24 @@ const skipLabel = locale === 'fr' ? 'Aller au contenu principal' : 'Skip to main
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
+    <script is:inline>
+      try {
+        const saved = localStorage.getItem('portfolio-theme');
+        const theme = saved === 'light' || saved === 'dark' ? saved : matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+      } catch {
+        const theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+      }
+    </script>
     <Seo title={title} description={description} />
   </head>
   <body>
     <SkipLink label={skipLabel} />
     <SiteHeader locale={locale} alternatePath={alternatePath} />
-    <main id="main-content" class="site-main" tabindex="-1">
+    <main id="main-content" class:list={['site-main', surface && `site-main--${surface}`]} tabindex="-1">
       <slot />
     </main>
     <SiteFooter locale={locale} />

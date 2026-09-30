@@ -1,0 +1,27 @@
+---
+import { getConfiguredContactLinks, site } from '../lib/site';
+import type { Locale } from '../lib/i18n';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const fr = locale === 'fr';
+const links = getConfiguredContactLinks(site);
+const phone = links.find((link) => link.label === 'Phone');
+---
+
+<section id="contact" class="home-section contact-section" aria-labelledby="contact-title">
+  <div class="section-kicker"><span>05 / 05</span><span>Contact</span></div>
+  <div class="contact-section__layout">
+    <div>
+      <p class="eyebrow">{fr ? 'La suite s’écrit ensemble' : 'Let’s start something'}</p>
+      <h2 id="contact-title">{fr ? 'Parlons de votre prochain projet.' : 'Let’s build what’s next.'}</h2>
+      <p class="contact-section__intro">{fr ? 'Une idée, une question ou simplement envie d’échanger ? Je serais ravi de discuter avec vous.' : 'An idea, a question, or just want to say hello? I’d love to hear from you.'}</p>
+      <a class="contact-section__email" href={`mailto:${site.email}`}>{site.email} <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="contact-panel">
+      <div><span>{fr ? 'Téléphone' : 'Phone'}</span>{phone ? <a href={phone.href}>{site.phone}</a> : <strong>{site.phone}</strong>}</div>
+      <div><span>{fr ? 'Localisation' : 'Location'}</span><strong>{site.location}</strong></div>
+      <div><span>{fr ? 'Retrouvez-moi' : 'Find me online'}</span><nav aria-label={fr ? 'Réseaux sociaux' : 'Social profiles'}>{links.filter((link) => link.label === 'GitHub' || link.label === 'LinkedIn').map((link) => <a href={link.href} target="_blank" rel="noopener noreferrer">{link.label} ↗</a>)}</nav></div>
+    </div>
+  </div>
+</section>

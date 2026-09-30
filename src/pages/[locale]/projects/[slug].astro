@@ -2,6 +2,7 @@
 import { render } from 'astro:content';
 import ExternalProjectLinks from '../../../components/ExternalProjectLinks.astro';
 import ProjectMeta from '../../../components/ProjectMeta.astro';
+import ProjectLogos from '../../../components/ProjectLogos.astro';
 import ResponsiveImage from '../../../components/ResponsiveImage.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { getProject, getProjectStaticPaths } from '../../../lib/projects';
@@ -34,7 +35,7 @@ const copy: Record<Locale, { contextRole: string; outcomes: string; problem: str
     <p class="eyebrow">{locale === 'fr' ? 'Étude de cas' : 'Case study'}</p>
     <h1>{project.data.title}</h1>
     <p class="page-intro">{project.data.summary}</p>
-    <ResponsiveImage image={project.data.image} alt={project.data.imageAlt} />
+    {project.data.logos && project.data.logos.length > 0 ? <div class="project-case-study__logos"><ProjectLogos logos={project.data.logos} /></div> : <ResponsiveImage image={project.data.image} alt={project.data.imageAlt} />}
     <section data-project-section="problem">
       <h2>{copy[locale].problem}</h2>
       <p>{project.data.summary}</p>

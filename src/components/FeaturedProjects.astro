@@ -1,0 +1,20 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import type { Locale } from '../lib/i18n';
+import { getLocalizedPath } from '../lib/i18n';
+import ProjectCard from './ProjectCard.astro';
+
+interface Props { locale: Locale; projects: CollectionEntry<'projects'>[] }
+const { locale, projects } = Astro.props;
+const fr = locale === 'fr';
+---
+
+<section id="projects" class="home-section featured-section" aria-labelledby="projects-title">
+  <div class="section-kicker"><span>04 / 05</span><span>{fr ? 'Projets' : 'Projects'}</span></div>
+  <div class="section-intro">
+    <div><p class="eyebrow">{fr ? 'Quelques réalisations' : 'Selected work'}</p><h2 id="projects-title">{fr ? 'Des idées devenues concrètes.' : 'Ideas made tangible.'}</h2></div>
+    <p>{fr ? 'Une sélection de projets professionnels, présentés dans le respect de leur confidentialité.' : 'A selection of professional work, shared with due regard for confidentiality.'}</p>
+  </div>
+  <div class="project-grid project-grid--featured">{projects.map((project, index) => <ProjectCard project={project} locale={locale} index={index + 1} />)}</div>
+  <a class="inline-arrow" href={getLocalizedPath(locale, 'projects')}>{fr ? 'Tous les projets' : 'All projects'} <span aria-hidden="true">↗</span></a>
+</section>

@@ -2,6 +2,7 @@
 import { getLocalizedPath, type Locale } from '../lib/i18n';
 import LanguageSwitcher from './LanguageSwitcher.astro';
 import MobileNavigation from './MobileNavigation.astro';
+import ThemeToggle from './ThemeToggle.astro';
 import { site } from '../lib/site';
 
 interface Props {
@@ -16,7 +17,7 @@ const { locale, alternatePath } = Astro.props;
   <div class="site-header__inner">
     <a class="site-brand" href={getLocalizedPath(locale)}>{site.name}</a>
     <MobileNavigation locale={locale} />
-    <LanguageSwitcher locale={locale} alternatePath={alternatePath} />
+    <div class="site-header__actions"><LanguageSwitcher locale={locale} alternatePath={alternatePath} /><ThemeToggle locale={locale} /></div>
   </div>
 </header>
 

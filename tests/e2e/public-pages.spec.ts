@@ -36,17 +36,23 @@ test.describe('public portfolio pages', () => {
     await expect(page.getByRole('link', { name: /github/i })).toBeVisible();
   });
 
-  test('localizes timeline dates on homepage previews and journey pages', async ({ page }) => {
-    await page.goto('/fr/');
-    await expect(page.locator('.timeline__dates').first()).toHaveText('mars 2025 - Aujourd’hui');
+  test('CV pages offer the provided PDF instead of an availability notice', async ({ page }) => {
+    for (const locale of locales) {
+      await page.goto(`/${locale}/cv/`);
+      await expect(page.getByRole('link', { name: /télécharger le cv|download the résumé/i })).toHaveAttribute('download', 'CV_2026-09-26_Auguste_ALEXANDRE.pdf');
+      await expect(page.locator('main')).not.toContainText(/disponible prochainement|available soon/i);
+    }
+  });
 
+  test('localizes timeline dates on journey pages linked from the homepage', async ({ page }) => {
+    await page.goto('/fr/');
+    await expect(page.locator('#about a[href="/fr/journey/"]')).toBeVisible();
     await page.goto('/fr/journey/');
-    await expect(page.locator('.timeline__dates').first()).toHaveText('mars 2025 - Aujourd’hui');
+    await expect(page.locator('.timeline__dates').first()).toHaveText('avr. 2025 - avr. 2025');
 
     await page.goto('/en/');
-    await expect(page.locator('.timeline__dates').first()).toHaveText('Mar 2025 - Present');
-
+    await expect(page.locator('#about a[href="/en/journey/"]')).toBeVisible();
     await page.goto('/en/journey/');
-    await expect(page.locator('.timeline__dates').first()).toHaveText('Mar 2025 - Present');
+    await expect(page.locator('.timeline__dates').first()).toHaveText('Apr 2025 - Apr 2025');
   });
 });

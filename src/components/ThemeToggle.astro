@@ -1,0 +1,7 @@
+---
+import type { Locale } from '../lib/i18n';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+---
+<button class="theme-toggle" type="button" data-theme-toggle data-dark-label={locale === 'fr' ? 'Activer le mode sombre' : 'Activate dark mode'} data-light-label={locale === 'fr' ? 'Activer le mode clair' : 'Activate light mode'} aria-label={locale === 'fr' ? 'Activer le mode sombre' : 'Activate dark mode'} title={locale === 'fr' ? 'Changer de thème' : 'Switch theme'}><span aria-hidden="true" data-theme-icon>☾</span></button>
+<script>import '../scripts/theme';</script>

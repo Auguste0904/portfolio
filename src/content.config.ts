@@ -18,6 +18,7 @@ export const projectSchema = z.object({
   demo: z.url().optional(),
   image: z.string().optional(),
   imageAlt: z.string().optional(),
+  logos: z.array(z.object({ src: z.string(), alt: z.string() })).optional(),
 }).superRefine(({ technologies, primaryTechnologies }, context) => {
   for (const technology of primaryTechnologies) {
     const registryTechnology = getTechnology(technology)?.label.en;

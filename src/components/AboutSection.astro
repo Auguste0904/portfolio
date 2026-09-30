@@ -1,0 +1,23 @@
+---
+import { getLocalizedPath, type Locale } from '../lib/i18n';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const fr = locale === 'fr';
+---
+
+<section id="about" class="home-section about-section" aria-labelledby="about-title">
+  <div class="section-kicker"><span>02 / 05</span><span>{fr ? 'À propos' : 'About'}</span></div>
+  <div class="about-layout">
+    <div>
+      <p class="eyebrow">{fr ? 'Concevoir. Construire. Faire évoluer.' : 'Design. Build. Evolve.'}</p>
+      <h2 id="about-title">{fr ? 'Le logiciel, de l’idée au réel.' : 'From an idea to working software.'}</h2>
+    </div>
+    <div class="about-copy">
+      <p>{fr ? 'Je suis Auguste, développeur full-stack diplômé d’EPITECH. Depuis 2020, je participe à la création et à l’évolution d’applications web, du développement à la mise en production.' : 'I’m Auguste, an EPITECH graduate and full-stack developer. Since 2020, I’ve helped build and evolve web applications, from development through production.'}</p>
+      <p>{fr ? 'Aujourd’hui chez Orange Business, je travaille à la rencontre des interfaces, des services et de l’automatisation. J’aime les solutions claires, utiles et pensées pour durer.' : 'At Orange Business, I work where interfaces, services and automation meet. I care about clear, useful solutions built to last.'}</p>
+      <a class="inline-arrow" href={getLocalizedPath(locale, 'journey')}>{fr ? 'Découvrir mon parcours' : 'Explore my journey'} <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+  <div class="about-signature" aria-hidden="true">A / A <span>FULL STACK · RENNES</span></div>
+</section>

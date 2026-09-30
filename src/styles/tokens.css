@@ -8,6 +8,9 @@
   --color-mist: #1d2a3d;
   --color-line: #30405a;
   --color-muted: #8996a9;
+  --color-glow-warm: rgb(213 140 98 / 13%);
+  --color-glow-cool: rgb(88 126 174 / 13%);
+  --shadow-card: 0 1.25rem 3rem rgb(2 7 16 / 22%);
   --font-display: Aptos Display, 'Segoe UI Variable Display', 'Segoe UI', ui-sans-serif, system-ui, sans-serif;
   --font-body: Aptos, 'Segoe UI Variable Text', 'Segoe UI', ui-sans-serif, system-ui, sans-serif;
   --radius-sm: 0.5rem;
@@ -20,4 +23,26 @@
   --space-5: 4.5rem;
   --content-width: 86rem;
   --frame: clamp(1.25rem, 4vw, 4.5rem);
+  --color-panel: #151f30;
+  --color-panel-strong: #1b293b;
+  --color-highlight: #f2ae7a;
+  --color-background-alt: #111b2a;
+}
+
+:root[data-theme='light'] {
+  --color-ink: #1e2b3b;
+  --color-ink-soft: #4c5b69;
+  --color-paper: #f5f1ea;
+  --color-paper-deep: #fffdf8;
+  --color-panel: #fffdf8;
+  --color-panel-strong: #ece7dd;
+  --color-background-alt: #ebe6dc;
+  --color-accent: #a34d2c;
+  --color-accent-dark: #903e22;
+  --color-highlight: #9d4828;
+  --color-line: #d6cec1;
+  --color-muted: #566474;
+  --color-glow-warm: rgb(198 113 69 / 10%);
+  --color-glow-cool: rgb(85 105 125 / 8%);
+  --shadow-card: 0 1.25rem 3rem rgb(50 43 36 / 12%);
 }

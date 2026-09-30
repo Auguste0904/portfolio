@@ -1,13 +1,19 @@
 ---
-title: Teams meeting-minutes application
+title: Live Intelligence for Teams
 slug: teams-meeting-minutes
-summary: Microsoft Teams application for meeting-minutes generation with Orange Live Intelligence.
-context: Product experience at Orange Business.
+summary: An app integrated into Teams that generates AI-powered meeting minutes in one click.
+context: Project developed at Orange Business using Live Intelligence.
 role: Full-stack Developer.
-contributions: [Contributed to full-stack application development.]
-technologies: [C#, ASP.NET Core, Angular]
-primaryTechnologies: [csharp, dotnet, angular]
-outcomes: [Implementation details and confidential information are not published.]
+contributions:
+  - Generate meeting minutes from transcripts using AI.
+  - Integrate an LLM chat so anyone can ask questions about the raw transcript.
+technologies: [C#, ASP.NET Core, React]
+primaryTechnologies: [csharp, dotnet, react]
+outcomes:
+  - Participants can revisit a meeting and query its transcript directly from Teams.
 featured: true
+logos:
+  - src: /images/projects/live-intelligence.png
+    alt: Live Intelligence logo
 ---
-This case study is intentionally limited to publishable information.
+The Live Intelligence for Teams application turns a meeting transcript into minutes in one click. Its integrated LLM chat then lets anyone ask questions about the previously generated raw transcript.

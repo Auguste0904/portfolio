@@ -1,0 +1,14 @@
+---
+import { normalizePublicImagePath } from '../lib/images';
+
+interface Props {
+  logos: { src: string; alt: string }[];
+  decorative?: boolean;
+}
+
+const { logos, decorative = false } = Astro.props;
+---
+
+<div class="project-logos" aria-hidden={decorative ? 'true' : undefined}>
+  {logos.map((logo) => <img src={normalizePublicImagePath(logo.src, import.meta.env.BASE_URL)} alt={decorative ? '' : logo.alt} loading="lazy" />)}
+</div>

@@ -26,7 +26,7 @@ Les contenus editables sont dans `src/content/` :
 
 Chaque valeur `[DEMO]` est un exemple fictif a remplacer. Les liens `[replace-with-contact-email@example.com]`, `[replace-with-linkedin-url]` et `[replace-with-github-url]` sont des placeholders explicites : remplacez-les exclusivement avec les coordonnees approuvees par le proprietaire. Ajoutez les images de projets dans `public/images/projects/`, puis renseignez leurs chemins dans les frontmatters des projets avec un texte alternatif descriptif.
 
-Le lien CV attend le vrai PDF a `public/documents/cv.pdf`. Ce fichier n'est volontairement pas fourni par le depot ; ajoutez uniquement le PDF approuve par le proprietaire avant publication.
+Le CV fourni par le proprietaire est disponible au telechargement dans `public/documents/CV_2026-09-26_Auguste_ALEXANDRE.pdf`. Les boutons de l'accueil et de la page CV pointent vers ce fichier. Si le CV est mis a jour, remplacer le PDF et ajuster son nom dans `src/lib/cv.ts` ainsi que les tests qui verifient le telechargement.
 
 ## SEO et deploiement GitHub Pages
 

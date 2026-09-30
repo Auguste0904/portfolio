@@ -16,12 +16,10 @@ test.describe('site navigation', () => {
     await page.goto('/en/');
 
     const navigation = page.getByRole('navigation', { name: 'Primary navigation' });
-    const profileLink = navigation.getByRole('link', { name: 'Profile', exact: true });
-    await expect(profileLink).toHaveAttribute('href', '/en/#profile');
+    const profileLink = navigation.getByRole('link', { name: 'About', exact: true });
+    await expect(profileLink).toHaveAttribute('href', '/en/#about');
     await expect(navigation.getByRole('link', { name: 'Projects', exact: true })).toHaveAttribute('href', '/en/#projects');
-    await expect(navigation.getByRole('link', { name: 'Journey', exact: true })).toHaveAttribute('href', '/en/#journey');
     await expect(navigation.getByRole('link', { name: 'Skills', exact: true })).toHaveAttribute('href', '/en/#skills');
-    await expect(navigation.getByRole('link', { name: 'CV', exact: true })).toHaveAttribute('href', '/en/#cv');
     await expect(navigation.getByRole('link', { name: 'Contact', exact: true })).toHaveAttribute('href', '/en/#contact');
     await profileLink.focus();
 
@@ -65,10 +63,10 @@ test.describe('site navigation', () => {
   });
 
   test('links to localized home sections from a case study', async ({ page }) => {
-    await page.goto('/en/projects/atlas/');
+    await page.goto('/en/projects/livecontrol/');
 
     const navigation = page.getByRole('navigation', { name: 'Primary navigation' });
-    await expect(navigation.getByRole('link', { name: 'Profile', exact: true })).toHaveAttribute('href', '/en/#profile');
+    await expect(navigation.getByRole('link', { name: 'About', exact: true })).toHaveAttribute('href', '/en/#about');
     await expect(navigation.getByRole('link', { name: 'Contact', exact: true })).toHaveAttribute('href', '/en/#contact');
   });
 
