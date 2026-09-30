@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import type { Locale } from '../lib/i18n';
+import { normalizePublicImagePath } from '../lib/images';
 
 interface Props {
   entries: CollectionEntry<'experience'>[];
@@ -18,10 +19,14 @@ const presentLabel = locale === 'fr' ? 'Aujourd’hui' : 'Present';
       <p class="timeline__dates">
         <time datetime={entry.data.startDate.toISOString()}>{formatter.format(entry.data.startDate)}</time>
         {' - '}
-        {entry.data.endDate ? <time datetime={entry.data.endDate.toISOString()}>{formatter.format(entry.data.endDate)}</time> : presentLabel}
+        {entry.data.endDate ? <time datetime={entry.data.endDate.toISOString()}>{entry.data.endYearOnly ? entry.data.endDate.getFullYear() : formatter.format(entry.data.endDate)}</time> : presentLabel}
       </p>
-      <h2>{entry.data.title}</h2>
+      <div class="timeline__heading">
+        {entry.data.logo && <img class="timeline__logo" src={normalizePublicImagePath(entry.data.logo, import.meta.env.BASE_URL)} alt={entry.data.logoAlt ?? entry.data.title} loading="lazy" />}
+        <h2>{entry.data.title}</h2>
+      </div>
       <p>{entry.data.summary}</p>
+      {entry.data.highlights.length > 0 && <ul class="timeline__highlights">{entry.data.highlights.map((highlight) => <li>{highlight}</li>)}</ul>}
     </li>
   ))}
 </ol>

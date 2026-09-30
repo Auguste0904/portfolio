@@ -3,4 +3,4 @@ title: 'CV'
 description: 'Professional journey of Auguste ALEXANDRE.'
 ---
 
-Journey: EPITECH Paris, OPENCELL, Cybille and Orange Business. The Journey page presents the CV-confirmed milestones.
+The résumé covers qualifications earned at EPITECH Paris, English language training in Dublin, Angular training with Ninja Squad, and experience at OPENCELL, Cybille and Orange Business. The Journey page details these education and career milestones.

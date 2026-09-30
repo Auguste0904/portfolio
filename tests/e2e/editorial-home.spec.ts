@@ -17,9 +17,9 @@ for (const locale of ['fr', 'en']) {
     await expect(page.locator('#intro').getByRole('link', { name: /github/i })).toHaveAttribute('href', /github.com/);
     await expect(page.locator('#intro').getByRole('link', { name: /linkedin/i })).toHaveAttribute('href', /linkedin.com/);
     const cvLink = page.locator('#intro').getByRole('link', { name: /télécharger mon cv|download my résumé/i });
-    await expect(cvLink).toHaveAttribute('href', '/documents/CV_2026-09-26_Auguste_ALEXANDRE.pdf');
-    await expect(cvLink).toHaveAttribute('download', 'CV_2026-09-26_Auguste_ALEXANDRE.pdf');
-    const cvResponse = await page.request.get('/documents/CV_2026-09-26_Auguste_ALEXANDRE.pdf');
+    await expect(cvLink).toHaveAttribute('href', '/documents/CV_2026-09-30_Auguste_ALEXANDRE.pdf');
+    await expect(cvLink).toHaveAttribute('download', 'CV_2026-09-30_Auguste_ALEXANDRE.pdf');
+    const cvResponse = await page.request.get('/documents/CV_2026-09-30_Auguste_ALEXANDRE.pdf');
     expect(cvResponse.ok()).toBe(true);
     expect(cvResponse.headers()['content-type']).toContain('application/pdf');
     expect((await cvResponse.body()).subarray(0, 5).toString()).toBe('%PDF-');

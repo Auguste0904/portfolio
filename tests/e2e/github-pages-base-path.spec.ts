@@ -15,8 +15,8 @@ test('GitHub Pages build prefixes internal routes and assets with the configured
   expect(html).toContain('href="/portfolio/fr/#projects"');
   expect(html).toMatch(/href="\/portfolio\/_astro\/.+\.css"/);
 
-  expect(html).toContain('href="/portfolio/documents/CV_2026-09-26_Auguste_ALEXANDRE.pdf"');
-  expect(html).toContain('download="CV_2026-09-26_Auguste_ALEXANDRE.pdf"');
-  const pdf = await readFile(resolve('dist/documents/CV_2026-09-26_Auguste_ALEXANDRE.pdf'));
+  expect(html).toContain('href="/portfolio/documents/CV_2026-09-30_Auguste_ALEXANDRE.pdf"');
+  expect(html).toContain('download="CV_2026-09-30_Auguste_ALEXANDRE.pdf"');
+  const pdf = await readFile(resolve('dist/documents/CV_2026-09-30_Auguste_ALEXANDRE.pdf'));
   expect(pdf.subarray(0, 5).toString()).toBe('%PDF-');
 });

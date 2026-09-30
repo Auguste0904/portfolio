@@ -16,7 +16,8 @@ if (!locale || !isLocale(locale)) {
 
 const entries = (await getCollection('experience'))
   .filter((entry) => entry.id.startsWith(`${locale}/`))
-  .sort((first, second) => second.data.startDate.getTime() - first.data.startDate.getTime());
+  .sort((first, second) => (second.data.endDate?.getTime() ?? Infinity) - (first.data.endDate?.getTime() ?? Infinity)
+    || second.data.startDate.getTime() - first.data.startDate.getTime());
 const copy = locale === 'fr'
   ? { title: 'Parcours', description: 'Etapes de formation et d experience.', intro: 'Une chronologie des experiences, formations et jalons.' }
   : { title: 'Journey', description: 'Experience and learning milestones.', intro: 'A timeline of experience, education and milestones.' };

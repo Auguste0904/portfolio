@@ -14,7 +14,7 @@ outcomes:
   - The application is now used by major stadiums in France.
 featured: true
 logos:
-  - src: /images/projects/orange-business.png
+  - src: /images/entreprises/orange-business.png
     alt: Orange Business logo
   - src: /images/projects/JO-2024.webp
     alt: Paris 2024 Olympic Games logo

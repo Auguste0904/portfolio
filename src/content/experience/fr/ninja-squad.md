@@ -1,7 +1,7 @@
 ---
-title: Ninja Squad - Formation Angular
+title: Formation Angular · Ninja Squad
 kind: education
 startDate: 2025-04-01
 endDate: 2025-04-30
-summary: Formation Angular a Ninja Squad.
+summary: Formation complète sur Angular 19 avec Ninja Squad à Rennes.
 ---

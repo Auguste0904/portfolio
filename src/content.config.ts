@@ -48,8 +48,11 @@ const experience = defineCollection({
     kind: z.enum(['experience', 'education', 'milestone']),
     startDate: z.coerce.date(),
     endDate: z.coerce.date().optional(),
+    endYearOnly: z.boolean().default(false),
     summary: z.string(),
     highlights: z.array(z.string()).default([]),
+    logo: z.string().optional(),
+    logoAlt: z.string().optional(),
   }),
 });
 

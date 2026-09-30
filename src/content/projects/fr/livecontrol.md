@@ -14,7 +14,7 @@ outcomes:
   - L’application est désormais utilisée par de grands stades en France.
 featured: true
 logos:
-  - src: /images/projects/orange-business.png
+  - src: /images/entreprises/orange-business.png
     alt: Logo Orange Business
   - src: /images/projects/JO-2024.webp
     alt: Logo des Jeux Olympiques de Paris 2024

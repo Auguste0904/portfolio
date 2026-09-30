@@ -30,19 +30,19 @@ for (const locale of ['fr', 'en']) {
 const selectedProjects = [
   {
     slug: 'teams-meeting-minutes',
-    logos: ['live-intelligence.png'],
+    logos: ['/images/projects/live-intelligence.png'],
     fr: ['Live Intelligence pour Teams', 'chat LLM', 'transcription'],
     en: ['Live Intelligence for Teams', 'LLM chat', 'transcript'],
   },
   {
     slug: 'livecontrol',
-    logos: ['orange-business.png', 'JO-2024.webp'],
+    logos: ['/images/entreprises/orange-business.png', '/images/projects/JO-2024.webp'],
     fr: ['affluence en temps réel', 'billet', 'stades'],
     en: ['real-time attendance', 'ticket', 'stadiums'],
   },
   {
     slug: 'gargantua-onega',
-    logos: ['convivio.png'],
+    logos: ['/images/projects/convivio.png'],
     fr: ['gestion des stocks', 'négocier', 'fournisseurs'],
     en: ['stock management', 'negotiate', 'suppliers'],
   },
@@ -76,8 +76,8 @@ for (const locale of ['fr', 'en'] as const) {
         const logos = card.locator('.project-card__art img');
         await expect(logos).toHaveCount(project.logos.length);
         for (const [index, filename] of project.logos.entries()) {
-          await expect(logos.nth(index)).toHaveAttribute('src', `/images/projects/${filename}`);
-          expect(await logos.nth(index).evaluate((image: HTMLImageElement) => image.complete && image.naturalWidth > 0)).toBe(true);
+          await expect(logos.nth(index)).toHaveAttribute('src', filename);
+          await expect.poll(() => logos.nth(index).evaluate((image: HTMLImageElement) => image.complete && image.naturalWidth > 0)).toBe(true);
         }
       }
     }
@@ -90,8 +90,8 @@ for (const locale of ['fr', 'en'] as const) {
       const logos = page.locator('.project-case-study__logos img');
       await expect(logos).toHaveCount(project.logos.length);
       for (const [index, filename] of project.logos.entries()) {
-        await expect(logos.nth(index)).toHaveAttribute('src', `/images/projects/${filename}`);
-        expect(await logos.nth(index).evaluate((image: HTMLImageElement) => image.complete && image.naturalWidth > 0)).toBe(true);
+        await expect(logos.nth(index)).toHaveAttribute('src', filename);
+        await expect.poll(() => logos.nth(index).evaluate((image: HTMLImageElement) => image.complete && image.naturalWidth > 0)).toBe(true);
       }
       for (const phrase of project[locale]) {
         await expect(page.locator('main')).toContainText(phrase);
