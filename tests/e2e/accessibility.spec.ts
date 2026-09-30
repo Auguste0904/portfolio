@@ -21,7 +21,7 @@ test.describe('accessibility and metadata', () => {
       await expect(page.locator('html')).toHaveAttribute('lang', locale);
       await expect(page).toHaveTitle(/.+/);
       await expect(page.locator('meta[name="description"]')).toHaveAttribute('content', /.+/);
-      await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', new RegExp(`https://portfolio\.example\.com/${locale}/$`));
+      await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', `https://auguste0904.github.io/${locale}/`);
     });
   }
 

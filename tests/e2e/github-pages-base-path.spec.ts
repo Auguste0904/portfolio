@@ -6,7 +6,10 @@ test.skip(process.env.BASE_PATH !== '/portfolio/', 'This spec is exercised by th
 
 test('GitHub Pages build prefixes internal routes and assets with the configured base path', async () => {
   const html = await readFile(resolve('dist/fr/index.html'), 'utf8');
+  const index = await readFile(resolve('dist/index.html'), 'utf8');
 
+  expect(index).toContain('url=/portfolio/fr/');
+  expect(html).toContain('href="https://auguste0904.github.io/portfolio/fr/"');
   expect(html).toContain('href="/portfolio/en/"');
   expect(html).toContain('href="/portfolio/fr/projects/"');
   expect(html).toContain('href="/portfolio/fr/#projects"');

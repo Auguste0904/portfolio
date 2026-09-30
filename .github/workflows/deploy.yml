@@ -2,7 +2,7 @@ name: Deploy portfolio
 
 on:
   push:
-    branches: [main]
+    branches: [master]
   workflow_dispatch:
 
 permissions:
@@ -26,7 +26,6 @@ jobs:
           package-manager: npm
         env:
           BASE_PATH: /portfolio/
-          PUBLIC_SITE_URL: ${{ vars.PUBLIC_SITE_URL }}
 
   deploy:
     environment:

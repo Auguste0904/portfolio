@@ -30,7 +30,7 @@ Le CV fourni par le proprietaire est disponible au telechargement dans `public/d
 
 ## SEO et deploiement GitHub Pages
 
-`PUBLIC_SITE_URL` configure le domaine public utilise pour les liens canoniques. Sa valeur par defaut, `https://portfolio.example.com`, est un placeholder non proprietaire qui doit etre remplace par l'URL finale du site.
+`PUBLIC_SITE_URL` permet de remplacer le domaine public utilise pour les liens canoniques. Par defaut, le site utilise `https://auguste0904.github.io`.
 
 `BASE_PATH` configure le sous-chemin de deploiement. Il vaut `/portfolio/` par defaut pour GitHub Pages. Pour un depot ou une URL different(e), adaptez-le en conservant les barres initiale et finale :
 
@@ -38,4 +38,4 @@ Le CV fourni par le proprietaire est disponible au telechargement dans `public/d
 PUBLIC_SITE_URL=https://example.github.io BASE_PATH=/nom-du-depot/ npm run build
 ```
 
-Le workflow `.github/workflows/deploy.yml` construit puis deploie le site lors d'un `push` sur `main` ou manuellement. Dans GitHub, ouvrez **Settings > Pages**, choisissez **GitHub Actions** comme source, puis definissez `PUBLIC_SITE_URL` comme variable de depot avec l'URL publique reelle. Si le nom du depot n'est pas `portfolio`, modifiez aussi `BASE_PATH` dans le workflow. La page racine ne contient qu'une redirection vers `/fr/` et est intentionnellement `noindex`.
+Le workflow `.github/workflows/deploy.yml` construit le site Astro et publie le dossier genere lors d'un `push` sur `master` ou manuellement. Dans GitHub, ouvrez **Settings > Pages** et choisissez **GitHub Actions** comme source. Le site sera disponible a `https://auguste0904.github.io/portfolio/`. Si le nom du depot change, modifiez aussi `BASE_PATH` dans le workflow et la valeur par defaut dans `astro.config.mjs`. La page racine ne contient qu'une redirection vers `/fr/` et est intentionnellement `noindex`.
