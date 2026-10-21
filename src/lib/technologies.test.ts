@@ -18,4 +18,15 @@ describe('technology registry', () => {
     });
     expect(getTechnologyLogoPath('bash', '/portfolio/')).toBeUndefined();
   });
+
+  it('registers Chrome Dev Tools with its provided logo', () => {
+    expect(getTechnology('chrome-dev-tools')).toMatchObject({
+      id: 'chrome-dev-tools',
+      label: { fr: 'Chrome Dev Tools', en: 'Chrome Dev Tools' },
+      logo: '/images/technologies/chrome-dev-tools.png',
+    });
+    expect(getTechnologyLogoPath('chrome-dev-tools', '/portfolio/')).toBe(
+      '/portfolio/images/technologies/chrome-dev-tools.png',
+    );
+  });
 });

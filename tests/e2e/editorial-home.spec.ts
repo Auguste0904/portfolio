@@ -77,7 +77,10 @@ test('homepage links and technology list remain useful without JavaScript', asyn
   try {
     const page = await context.newPage();
     await page.goto('/fr/');
-    await expect(page.locator('#skills .technology-badge')).toHaveCount(21);
+    await expect(page.locator('#skills .technology-badge')).toHaveCount(22);
+    const chromeDevTools = page.locator('#skills .technology-badge').filter({ hasText: 'Chrome Dev Tools' });
+    await expect(chromeDevTools).toHaveCount(1);
+    await expect(chromeDevTools.locator('img')).toHaveAttribute('src', '/images/technologies/chrome-dev-tools.png');
     await expect(page.getByRole('button', { name: 'Technologies suivantes' })).toBeHidden();
     await expect(page.locator('#projects .project-card a')).toHaveCount(3);
     await expect(page.locator('.site-nav').getByRole('link', { name: 'Contact' })).toHaveAttribute('href', '/fr/#contact');

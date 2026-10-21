@@ -1,7 +1,7 @@
 import { normalizePublicImagePath } from './images';
 import type { Locale } from './i18n';
 
-export type TechnologyId = 'angular' | 'react' | 'typescript' | 'html' | 'css' | 'csharp' | 'dotnet' | 'python' | 'sql' | 'c' | 'cpp' | 'docker' | 'azure' | 'terraform' | 'kubernetes' | 'bash' | 'opencode' | 'context7' | 'playwright' | 'claude' | 'chatgpt' | 'qwen';
+export type TechnologyId = 'angular' | 'react' | 'typescript' | 'html' | 'css' | 'csharp' | 'dotnet' | 'python' | 'sql' | 'c' | 'cpp' | 'docker' | 'azure' | 'terraform' | 'kubernetes' | 'bash' | 'opencode' | 'context7' | 'playwright' | 'claude' | 'chatgpt' | 'qwen' | 'chrome-dev-tools';
 
 export type Technology = { id: TechnologyId; label: Record<Locale, string>; logo?: string };
 
@@ -28,6 +28,7 @@ const definitions: Technology[] = [
   ['opencode', 'OpenCode', '/images/technologies/opencode.webp'],
   ['context7', 'Context7', '/images/technologies/context7.png'],
   ['playwright', 'Playwright', '/images/technologies/playwright.svg'],
+  ['chrome-dev-tools', 'Chrome Dev Tools', '/images/technologies/chrome-dev-tools.png'],
 ].map(([id, label, logo]) => ({ id: id as TechnologyId, label: { fr: label, en: label }, logo }));
 
 export const technologyIds = definitions.map((technology) => technology.id) as [TechnologyId, ...TechnologyId[]];
